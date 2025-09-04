@@ -1,0 +1,4 @@
+Tweaks you can make
+	•	Chase speed: bump const ease = 0.12 up (0.16–0.2) to make kitty faster; lower (0.08) to mellow it out.
+	•	Start position: change the cat’s default left/bottom in CSS (near the house) or in disablePlay() if you move the house.
+	•	Remember user preference: add localStorage.setItem('playMode', 'on/off') inside enable/disable and read it on load if you want it to stick.
