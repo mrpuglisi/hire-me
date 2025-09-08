@@ -21,7 +21,7 @@
 /* Alt palettes */
 
 /* =======================
-   Goth Barbie (dark UI) - (previouslu "minimal bold")
+   Goth Barbie (dark UI) - (previously "minimal bold")
    ======================= */
 .theme-goth {
   /* Backgrounds */
@@ -48,7 +48,7 @@
 }
 
 /* ===========================
-   Goth Barbie – updated colors
+   Goth Barbie – more specific fixes
    =========================== */
 
 /* (1) HERO: black panel with white type */
@@ -85,19 +85,19 @@
   color: #000;                          /* true black text */
   font-weight: 700;                     /* keeps it crisp on light pills */
 }
-/* keep the soft fills on light pink */
+/* Keep the soft fills on light pink */
 .theme-goth .button.soft {
   background: var(--accent-2);          /* #ffa6fc */
 }
 
-/* Optional: make outline buttons dark with pink borders on this theme */
+/* Outline dark buttons with pink borders on this theme */
 .theme-goth .button.outline {
   background: var(--surface);
   color: var(--text);
   border: 2px solid color-mix(in oklab, var(--primary) 55%, #ffffff 0%);
 }
 
-/* Optional: soften cards & footer on the dark theme */
+/* Soften cards & footer on the dark theme */
 .theme-goth .card { 
   background: color-mix(in oklab, var(--surface) 92%, #000 8%); 
   border-color: color-mix(in oklab, #fff 6%, transparent);
@@ -107,24 +107,20 @@
   border-bottom-color: color-mix(in oklab, #fff 8%, transparent);
 }
 
-/* ===========================
-   GOTH BARBIE — targeted fixes
-   =========================== */
-
-/* 1) Theme select in the top-right: readable on dark header */
+/* Changes the text color of the theme name on the theme-switcher */
 .theme-goth .vibe-switcher select {
   color: #ffffff;
   background: #1c1c1c;
   border: 1px solid #2a2a2a;
 }
 
-/* 2) The band directly under the hero (your “values” strip) —
+/* The horizontal band directly under the hero (the “values” strip) —
       set to your soft pink block color */
 .theme-goth .values {
-  background: #f8c6e6; /* your sample square */
+  background: #f8c6e6; /* soft pink */
 }
 
-/* 3) “Local small business owners” chips look like the hot-pink Recruiters button
+/* “Local small business owners” chips look like the hot-pink Recruiters button
       - selected = hot pink
       - hover = a little darker
       - unselected = subtle pill */
@@ -135,7 +131,7 @@
 }
 
 .theme-goth #services-path .tabs [role="tab"][aria-selected="true"] {
-  background: #ff59c7;  /* same hot pink family as your “For recruiters” */
+  background: #ff59c7;  /* same hot pink family  */
   color: #ffffff;
   border-color: transparent;
   box-shadow: 0 8px 24px rgba(255, 89, 199, 0.28);
@@ -159,12 +155,60 @@
 /* 5) Skills chips (right column) — black text for better contrast */
 .theme-goth .pill-list li {
   color: #111111;
-  background: #f2c3d0;           /* soft Barbie pink pill */
+  background: #f8c6e6; /* soft pink pill */
   border: 1px solid rgba(0,0,0,0.06);
 }
 .theme-goth .pill-list li:hover {
   background: #ff94e0;           /* hover nudge */
   color: #111111;
+}
+/* Reset list look so they appear as pills */
+.theme-goth .values ul { list-style: none; padding: 0; margin: 0; }
+
+/* Catch-all for however those items are marked up (li, span, chip, pill, etc.) */
+.theme-goth .values li,
+.theme-goth .values .chip,
+.theme-goth .values .pill,
+.theme-goth .values [class*="chip"],
+.theme-goth .values [class*="pill"],
+.theme-goth .values [role="listitem"] {
+  background: #000 !important;
+  color: var(--text) !important;
+  border: 2px solid var(--primary) !important;   /* same pink border */
+  border-radius: 9999px !important;               /* pill shape */
+  padding: 0.5rem 0.9rem !important;
+  box-shadow: none !important;
+}
+
+/* Optional hover/focus */
+.theme-goth .values li:hover,
+.theme-goth .values .chip:hover,
+.theme-goth .values .pill:hover {
+  border-color: var(--accent) !important;
+}
+
+/* Fix dark cards so body text is readable */
+.theme-goth .card,
+.theme-goth .card p,
+.theme-goth .card li,
+.theme-goth .card span,
+.theme-goth .card a,
+.theme-goth .card strong,
+.theme-goth .card em {
+  color: #fff !important;   /* force white text */
+}
+
+/* Headings too */
+.theme-goth .card h1,
+.theme-goth .card h2,
+.theme-goth .card h3,
+.theme-goth .card h4 {
+  color: #fff !important;
+}
+
+/* Just the section title */
+.theme-goth .section.alt h2 {
+  color: #000 !important;
 }
 .theme-earthy {
   --bg: #faf7f2;
