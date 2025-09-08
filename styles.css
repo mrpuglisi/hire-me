@@ -1,0 +1,580 @@
+/* =========================================================
+   THEME TOKENS
+   ========================================================= */
+:root {
+  --bg: #f8fbff;
+  --text: #0f1b2d;
+  --muted: #4a6280;
+  --primary: #2f87a5;
+  --accent: #f3a6c8;
+  --accent-2: #b5e3ff;
+  --surface: #ffffff;
+  --sand: #fff6ef;
+  --ring: rgba(47,135,165,0.28);
+  --shadow: 0 10px 28px rgba(47,135,165,0.12);
+  --grad-a: #b5e3ff;
+  --grad-b: #f3a6c8;
+  /* Text color to use when something is on top of --primary */
+:root { --on-primary: #ffffff; }
+}
+
+/* Alt palettes */
+
+/* =======================
+   Goth Barbie (dark UI) - (previouslu "minimal bold")
+   ======================= */
+.theme-goth {
+  /* Backgrounds */
+  --bg: #0b0b0b;               /* near-black page background */
+  --surface: #1c1c1c;          /* card/section surfaces */
+  --sand: #111111;             /* “alt” section bg */
+
+  /* Text */
+  --text: #f6f6f7;             /* primary text on dark */
+  --muted: #c9c0ca;            /* secondary text (cool pinkish gray) */
+
+  /* Brand / action colors (from your swatches) */
+  --primary: #ff59c7;          /* hot pink – primary buttons */
+  --accent:  #fc68dc;          /* vivid pink – chips/accents */
+  --accent-2:#ffa6fc;          /* light pink – soft fills */
+
+  /* Gradients (for any gradients you kept) */
+  --grad-a: #ff94e0;           /* left of gradient */
+  --grad-b: #ff59c7;           /* right of gradient */
+
+  /* Focus ring + shadow tuned for dark UI */
+  --ring: rgba(255,166,252,0.35);
+  --shadow: 0 18px 40px rgba(0,0,0,0.55);
+}
+
+/* ===========================
+   Goth Barbie – updated colors
+   =========================== */
+
+/* (1) HERO: black panel with white type */
+.theme-goth .hero--clean {
+  background: #000;                     /* solid black */
+}
+.theme-goth .hero h1 { color: var(--text); }      /* white headline */
+.theme-goth .kicker { color: var(--muted); }      /* soft gray-pink kicker */
+.theme-goth .lead   { color: var(--muted); }      /* soft paragraph */
+
+/* (2) VALUES BAND: bright hot-pink strip (same as "For recruiters") */
+.theme-goth .values {
+  background: var(--primary);           /* #ff59c7 from your palette */
+}
+.theme-goth .values li {
+  /* keep the chips readable on the hot pink band */
+  background: color-mix(in oklab, white 14%, var(--primary));
+  border-color: transparent;
+}
+
+/* (3) NEXT SECTION ("Snapshot for hiring") background = same hot pink */
+.theme-goth .section.alt {
+  background: var(--primary);           /* solid #ff59c7 */
+}
+/* keep cards readable on the pink background */
+.theme-goth .section.alt .card {
+  background: var(--surface);
+  border-color: color-mix(in oklab, #fff 6%, transparent);
+}
+
+/* (5) & (9) SOFT PILLS/BUTTONS: make the text black */
+.theme-goth .button.soft,
+.theme-goth .chips span {
+  color: #000;                          /* true black text */
+  font-weight: 700;                     /* keeps it crisp on light pills */
+}
+/* keep the soft fills on light pink */
+.theme-goth .button.soft {
+  background: var(--accent-2);          /* #ffa6fc */
+}
+
+/* Optional: make outline buttons dark with pink borders on this theme */
+.theme-goth .button.outline {
+  background: var(--surface);
+  color: var(--text);
+  border: 2px solid color-mix(in oklab, var(--primary) 55%, #ffffff 0%);
+}
+
+/* Optional: soften cards & footer on the dark theme */
+.theme-goth .card { 
+  background: color-mix(in oklab, var(--surface) 92%, #000 8%); 
+  border-color: color-mix(in oklab, #fff 6%, transparent);
+}
+.theme-goth .site-header { 
+  background: color-mix(in oklab, #000 72%, transparent);
+  border-bottom-color: color-mix(in oklab, #fff 8%, transparent);
+}
+
+/* ===========================
+   GOTH BARBIE — targeted fixes
+   =========================== */
+
+/* 1) Theme select in the top-right: readable on dark header */
+.theme-goth .vibe-switcher select {
+  color: #ffffff;
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+}
+
+/* 2) The band directly under the hero (your “values” strip) —
+      set to your soft pink block color */
+.theme-goth .values {
+  background: #f8c6e6; /* your sample square */
+}
+
+/* 3) “Local small business owners” chips look like the hot-pink Recruiters button
+      - selected = hot pink
+      - hover = a little darker
+      - unselected = subtle pill */
+.theme-goth #services-path .tabs [role="tab"] {
+  color: #111;                            /* legible on light pills */
+  background: rgba(248, 198, 230, 0.35);  /* soft pink pill for unselected */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.theme-goth #services-path .tabs [role="tab"][aria-selected="true"] {
+  background: #ff59c7;  /* same hot pink family as your “For recruiters” */
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(255, 89, 199, 0.28);
+}
+
+.theme-goth #services-path .tabs [role="tab"]:hover {
+  background: #fc68dc; /* slightly deeper pink on hover */
+  color: #fff;
+}
+
+/* 4) “For local swimmers & parents” section uses black text
+      (because that card/background is light in this theme) */
+.theme-goth #swim-path h2,
+.theme-goth #swim-path p,
+.theme-goth #swim-path li,
+.theme-goth #swim-path details,
+.theme-goth #swim-path summary {
+  color: #111111;
+}
+
+/* 5) Skills chips (right column) — black text for better contrast */
+.theme-goth .pill-list li {
+  color: #111111;
+  background: #f2c3d0;           /* soft Barbie pink pill */
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.theme-goth .pill-list li:hover {
+  background: #ff94e0;           /* hover nudge */
+  color: #111111;
+}
+.theme-earthy {
+  --bg: #faf7f2;
+  --text: #1b120a;
+  --muted: #6b5b4b;
+  --primary: #885a2d;
+  --accent: #3e7b65;
+  --accent-2: #c8e0d6;
+  --surface: #fffaf3;
+  --sand: #fff3e0;
+  --ring: rgba(136,90,45,0.35);
+  --shadow: 0 8px 18px rgba(74, 46, 18, 0.12);
+  --grad-a: #ffd6a6;
+  --grad-b: #7dc3a6;
+}
+.theme-beach {
+  --bg: #f8fbff;
+  --text: #0f1b2d;
+  --muted: #4a6280;
+  --primary: #2f87a5;  /* sea blue */
+  --accent: #f3a6c8;   /* soft pink */
+  --accent-2: #b5e3ff; /* baby blue */
+  --surface: #ffffff;
+  --sand: #fff6ef;     /* warm sand */
+  --ring: rgba(47,135,165,0.28);
+  --shadow: 0 10px 28px rgba(47,135,165,0.12);
+  --grad-a: #b5e3ff;
+  --grad-b: #f3a6c8;
+}
+
+/* === Millennial Gray — :) === */
+.theme-gray {
+  /* One flat gray for the whole canvas */
+  --bg:       #e5e5e5;   /* page background + bands */
+  --surface:  #e5e5e5;   /* cards/nav use the same gray */
+  --sand:     #e5e5e5;   /* "alt" sections too */
+
+  /* Text still readable */
+  --text:     #1f2937;   /* very dark gray (near-black) */
+  --muted:    #4b5563;   /* paragraph/subtext */
+
+  /* Components stay gray as well */
+  --primary:  #bfbfbf;   /* solid gray buttons */
+  --accent:   #d6d6d6;   /* chips/pills */
+  --accent-2: #cccccc;   /* secondary chips/pills */
+
+  /* No fun, no gradients, no shadows */
+  --ring:     rgba(0,0,0,0.14);
+  --shadow:   none;
+  --grad-a:   #e5e5e5;
+  --grad-b:   #e5e5e5;
+
+  /* Make text dark when a component uses the gray --primary */
+.theme-gray { --on-primary: #1f2937; }
+}
+
+/* Make sticky header blend with the same gray */
+.theme-gray .site-header {
+  background: var(--bg);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  backdrop-filter: none;
+}
+
+/* Hero + values strip + alt sections: same gray, no gradient */
+.theme-gray .hero,
+.theme-gray .hero--clean,
+.theme-gray .values,
+.theme-gray .section,
+.theme-gray .section.alt {
+  background: var(--bg) !important;
+  box-shadow: none;
+}
+
+/* Cards/buttons/pills flattened and gray */
+.theme-gray .card,
+.theme-gray .micro,
+.theme-gray .pill-list li,
+.theme-gray .tabs [role="tab"],
+.theme-gray .button,
+.theme-gray .button.soft,
+.theme-gray .button.outline {
+  background: #d9d9d9 !important;
+  color: var(--text) !important;
+  border: 1px solid #c9c9c9 !important;
+  box-shadow: none !important;
+}
+
+/* Chips under the hero */
+.theme-gray .chips span,
+.theme-gray .button.primary {
+  background: #cfcfcf !important;
+  color: var(--text) !important;
+  border-color: #c0c0c0 !important;
+}
+
+/* Links: gray but readable */
+.theme-gray a { color: #333 !important; }
+.theme-gray a:hover { color: #111 !important; text-decoration: underline; }
+
+/* Any gradient bands that might sneak in */
+.theme-gray .values {
+  background: var(--bg) !important;
+}
+
+/* =========================================================
+   BASE + LAYOUT
+   ========================================================= */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+.visually-hidden { position: absolute; clip: rect(0 0 0 0); clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; white-space: nowrap; }
+.container { width: min(1100px, 92vw); margin-inline: auto; }
+
+/* Header / Nav */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in oklab, var(--surface) 90%, transparent);
+  backdrop-filter: blur(8px) saturate(140%);
+  border-bottom: 1px solid color-mix(in oklab, var(--muted) 18%, transparent);
+}
+.header-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; padding: 14px 8px; }
+.brand { font-weight: 800; text-decoration: none; color: var(--text); }
+
+.site-nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+.site-nav a { position: relative; text-decoration: none; color: var(--text); opacity: .9; }
+.site-nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -2px; width: 0; height: 1.5px;
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b)); transition: width .2s ease; opacity: .85;
+}
+.site-nav a:is(:hover,:focus)::after { width: 100%; }
+.nav-toggle { display: none; }
+
+.vibe-switcher select {
+  background: var(--surface);
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  border-radius: 10px; padding: 6px 8px;
+}
+
+/* Hero */
+.hero { position: relative; padding: 92px 0 24px; overflow: hidden; }
+.kicker { letter-spacing: .3px; color: var(--muted); font-weight: 600; }
+.hero h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.15; margin: 6px 0 10px; letter-spacing: .1px; font-weight: 800; color: #0c1320; }
+.lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); max-width: 60ch; }
+
+.cta-row { margin: 16px 0 8px; display: flex; gap: 10px; flex-wrap: wrap; }
+.button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 700; border: 0; box-shadow: var(--shadow); }
+.button.primary { background: var(--primary); color: white; }
+.button.soft { background: color-mix(in oklab, var(--accent-2) 70%, white); color: var(--text); }
+.button.outline { background: var(--surface); color: var(--text); border: 2px solid color-mix(in oklab, var(--primary) 35%, white); }
+.button:is(:hover,:focus) { outline: 3px solid var(--ring); transform: translateY(-1px); }
+
+.chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+.chips span { padding: 6px 10px; border-radius: 999px; background: color-mix(in oklab, var(--accent) 20%, white); }
+
+.tabs button.is-active{
+  background: color-mix(in oklab, var(--accent) 25%, white);
+  border-color: color-mix(in oklab, var(--accent) 35%, white);
+  box-shadow: var(--shadow);
+}
+/* Hero container keeps everything clipped inside */
+.hero,
+
+
+.hero--clean {
+  background: #fff;
+  box-shadow: inset 0 -1px 0 color-mix(in oklab, var(--muted) 12%, transparent);
+}
+
+/* Hero background with decorative palm tree */
+.hero--clean {
+  position: relative;
+  background: #fff;
+  box-shadow: inset 0 -1px 0 color-mix(in oklab, var(--muted) 12%, transparent);
+
+  /* Palm tree background (fixed) */
+  background-image: url("palm-tree.svg");
+  background-repeat: no-repeat;
+  background-size: 180px auto;
+  background-position: right bottom;
+  background-attachment: fixed;
+}
+
+/* Values band */
+.values { background: linear-gradient(90deg, color-mix(in oklab, var(--grad-a) 40%, white), color-mix(in oklab, var(--grad-b) 40%, white)); }
+.values-inner { padding: 12px 0; }
+.values ul { list-style: none; display: flex; gap: 16px; flex-wrap: wrap; margin: 0; padding: 8px; justify-content: center; }
+.values li { background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 8%, transparent); border-radius: 999px; padding: 8px 12px; box-shadow: var(--shadow); }
+
+/* Sections */
+.section { padding: 64px 0; }
+.section.alt { background: color-mix(in oklab, var(--sand) 55%, white); }
+.two-col { display: grid; grid-template-columns: 3fr 2fr; gap: 22px; }
+
+/* Cards */
+.card { background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius: 14px; padding: 16px; box-shadow: var(--shadow); }
+.card.candy { background: radial-gradient(1200px 160px at 10% 0%, color-mix(in oklab, var(--accent) 25%, white), transparent 45%), var(--surface); }
+.inline-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 12px; }
+.micro { background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius: 14px; padding: 12px; }
+
+/* Fact grid */
+.fact-grid { list-style: none; margin: 0 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+.fact-grid li { background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius: 16px; padding: 10px; display: grid; gap: 4px; }
+.fact-grid strong { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+
+/* Pills */
+.pill-list { display: flex; gap: 8px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
+.pill-list li { background: color-mix(in oklab, var(--accent) 35%, white); padding: 6px 10px; border-radius: 999px; }
+
+/* ===== Skills pill interactions ===== */
+.pill-list li{
+  background: color-mix(in oklab, var(--accent) 35%, var(--surface));
+  color: var(--text);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  transition: background .18s ease, color .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+/* Hover/focus */
+.pill-list li:is(:hover, :focus-visible){
+  background: color-mix(in oklab, var(--primary) 22%, var(--accent));
+  border-color: color-mix(in oklab, var(--primary) 38%, var(--surface));
+  box-shadow: 0 6px 16px color-mix(in oklab, var(--primary) 24%, transparent);
+  color: var(--on-primary);
+}
+
+/* Optional “selected” look (if you toggle a class or aria in JS/HTML) */
+.pill-list li.is-active,
+.pill-list [aria-selected="true"]{
+  background: var(--primary);
+  border-color: transparent;
+  color: var(--on-primary);
+  box-shadow: 0 10px 26px color-mix(in oklab, var(--primary) 32%, transparent);
+}
+
+/* Timeline */
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.t-card { background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius: 14px; padding: 14px; box-shadow: var(--shadow); }
+.meta { color: var(--muted); font-size: 14px; }
+
+/* Cards grid */
+/* Case studies grid: stable columns by breakpoint (cleaner & predictable) */
+.cards{
+  display: grid;
+  gap: 20px;                  /* consistent gutter = better grouping (Gestalt: proximity) */
+  grid-template-columns: 1fr; /* mobile first */
+}
+
+@media (min-width: 640px){     /* tablets */
+  .cards{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px){    /* desktops */
+  .cards{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Make every card equal height and tidy inside */
+.cards .card{
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px;
+  border-radius: 16px;
+  height: 100%;
+}
+
+/* Let the summary link sit at the bottom consistently */
+.cards .card p{ margin-bottom: auto; }   /* description pushes summary down */
+.cards .card details{ margin-top: 8px; }
+.cards .glow { box-shadow: 0 0 0 0 rgba(243,166,200,0.0), var(--shadow); transition: box-shadow .25s ease; }
+.cards .glow:is(:hover,:focus-within) { box-shadow: 0 0 0 8px color-mix(in oklab, var(--accent) 25%, transparent), var(--shadow); }
+
+/* Lists etc. */
+.checklist { padding-left: 1.1em; }
+.checklist li { margin: 6px 0; }
+
+/* ===== Tabs (global interactive states) ===== */
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Base pill */
+.tabs [role=tab]{
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  background: color-mix(in oklab, var(--accent-2) 70%, var(--surface));
+  color: var(--text);
+  transition: background .18s ease, color .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+/* Hover/focus */
+.tabs [role=tab]:is(:hover, :focus-visible){
+  background: color-mix(in oklab, var(--primary) 22%, var(--surface));
+  border-color: color-mix(in oklab, var(--primary) 38%, var(--surface));
+  box-shadow: 0 6px 16px color-mix(in oklab, var(--primary) 24%, transparent);
+}
+
+/* Selected (uses theme primary + readable text) */
+.tabs [role=tab][aria-selected="true"]{
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: transparent;
+  box-shadow: 0 10px 26px color-mix(in oklab, var(--primary) 32%, transparent);
+}
+
+/* Panels */
+.tab-panel { display: none; padding: 12px 0; }
+.tab-panel.show { display: block; }
+
+/* Footer */
+.site-footer { padding: 28px 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.to-top { padding: 8px 10px; border-radius: 12px; border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); background: var(--surface); box-shadow: var(--shadow); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 860px) {
+  .two-col { grid-template-columns: 1fr; }
+  .nav-toggle { display: inline-flex; background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); padding: 6px 10px; border-radius: 10px; }
+  .site-nav ul {
+    display: none; position: absolute; right: 8px; top: 58px; flex-direction: column;
+    padding: 10px; background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+    border-radius: 12px; box-shadow: var(--shadow);
+  }
+  .site-nav ul.open { display: flex; }
+}
+
+/* Print tidy */
+@media print {
+  .site-header, .site-footer, .values, .vibe-switcher, .cta-row a:not(.primary) { display: none !important; }
+  body { font-size: 12pt; }
+  .section { padding: 12pt 0; }
+}
+
+/* =========================================================
+   SECTION ACCENTS
+   ========================================================= */
+#swim-path.section { background: color-mix(in oklab, var(--accent-2) 18%, white); }
+#swim-path .card.candy {
+  background: radial-gradient(900px 160px at 15% 0%, color-mix(in oklab, var(--accent) 22%, white), transparent 50%), var(--surface);
+}
+#swim-path details summary { cursor: pointer; }
+
+/* =========================================================
+   ROTATING WORD EFFECT
+   ========================================================= */
+.rotate-words { display: inline-block; position: relative; min-width: 80px; }
+.rotate-words.fade { opacity: 0; transition: opacity 0.5s ease; }
+
+/* =========================================================
+   MOUSE HOUSE + CAT (GIF version)
+   ========================================================= */
+.mouse-house{
+  position: fixed;
+  top: 14px; right: 14px;
+  width: 44px; height: 44px;
+  border: 1px solid color-mix(in oklab, var(--text) 14%, transparent);
+  padding: 6px; border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  z-index: 10000; /* above everything */
+}
+.mouse-house svg{ display:block; }
+.mouse-house:focus-visible{ outline: 3px solid var(--ring); }
+/* keep visible when pressed */
+.mouse-house[aria-pressed="true"]{
+  background: color-mix(in oklab, var(--accent-2) 60%, white);
+  border-color: color-mix(in oklab, var(--primary) 35%, white);
+}
+
+/* Cat is an <img> (no background sprites) */
+#cat{
+  position: fixed;
+  left: 24px;          /* dock: left side */
+  top: 120px;          /* nudge to sit on the banner */
+  width: 120px; height: auto;
+  z-index: 9998; pointer-events: none;
+  transition: transform .15s linear;
+  object-fit: contain;
+  will-change: left, top, transform;
+}
+#cat.flip{ transform: scaleX(-1); }
+
+/* Custom mouse cursor (only during play) */
+#mouseCursor{
+  position: fixed; width: 32px; height: 32px;
+  left: 0; top: 0; transform: translate(-50%,-50%);
+  pointer-events: none; z-index: 9999; display: none;
+}
+body.play-mode{ cursor: none; }
+body.play-mode #mouseCursor{ display: block; }
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce),
+       (pointer: coarse){
+  body.play-mode{ cursor: auto; }
+  #mouseCursor, #cat{ display: none !important; }
+}
+
+ /* Contact headshot styling */
+.headshot-wrap {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.headshot-wrap img {
+  width: 120px;          /* size of the circle */
+  height: 120px;
+  border-radius: 50%;    /* makes it circular */
+  object-fit: cover;     /* keeps face centered */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* soft shadow */
+}
