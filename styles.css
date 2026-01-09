@@ -687,3 +687,17 @@ body.play-mode #mouseCursor{ display: block; }
   .about-who{ grid-template-columns: 1fr; }
   .about-circle img{ width: min(420px, 80%); margin-inline: auto; }
 }
+
+body.theme-gray img,
+body.theme-gray svg,
+body.theme-gray video,
+body.theme-gray canvas,
+body.theme-gray picture,
+body.theme-gray .about-circle,
+body.theme-gray .headshot,
+body.theme-gray .cat,
+body.theme-gray .gif,
+body.theme-gray [class*="icon"],
+body.theme-gray [class*="emoji"]{
+  filter: grayscale(100%) !important;
+}
