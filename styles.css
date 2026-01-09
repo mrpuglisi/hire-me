@@ -21,7 +21,7 @@
 /* Alt palettes */
 
 /* =======================
-   Goth Barbie (dark UI) - (previously "minimal bold")
+   Goth Barbie (dark UI) - (previouslu "minimal bold")
    ======================= */
 .theme-goth {
   /* Backgrounds */
@@ -48,7 +48,7 @@
 }
 
 /* ===========================
-   Goth Barbie – more specific fixes
+   Goth Barbie – updated colors
    =========================== */
 
 /* (1) HERO: black panel with white type */
@@ -85,19 +85,19 @@
   color: #000;                          /* true black text */
   font-weight: 700;                     /* keeps it crisp on light pills */
 }
-/* Keep the soft fills on light pink */
+/* keep the soft fills on light pink */
 .theme-goth .button.soft {
   background: var(--accent-2);          /* #ffa6fc */
 }
 
-/* Outline dark buttons with pink borders on this theme */
+/* Optional: make outline buttons dark with pink borders on this theme */
 .theme-goth .button.outline {
   background: var(--surface);
   color: var(--text);
   border: 2px solid color-mix(in oklab, var(--primary) 55%, #ffffff 0%);
 }
 
-/* Soften cards & footer on the dark theme */
+/* Optional: soften cards & footer on the dark theme */
 .theme-goth .card { 
   background: color-mix(in oklab, var(--surface) 92%, #000 8%); 
   border-color: color-mix(in oklab, #fff 6%, transparent);
@@ -107,20 +107,24 @@
   border-bottom-color: color-mix(in oklab, #fff 8%, transparent);
 }
 
-/* Changes the text color of the theme name on the theme-switcher */
+/* ===========================
+   GOTH BARBIE — targeted fixes
+   =========================== */
+
+/* 1) Theme select in the top-right: readable on dark header */
 .theme-goth .vibe-switcher select {
   color: #ffffff;
   background: #1c1c1c;
   border: 1px solid #2a2a2a;
 }
 
-/* The horizontal band directly under the hero (the “values” strip) —
+/* 2) The band directly under the hero (your “values” strip) —
       set to your soft pink block color */
 .theme-goth .values {
-  background: #f8c6e6; /* soft pink */
+  background: #f8c6e6; /* your sample square */
 }
 
-/* “Local small business owners” chips look like the hot-pink Recruiters button
+/* 3) “Local small business owners” chips look like the hot-pink Recruiters button
       - selected = hot pink
       - hover = a little darker
       - unselected = subtle pill */
@@ -131,7 +135,7 @@
 }
 
 .theme-goth #services-path .tabs [role="tab"][aria-selected="true"] {
-  background: #ff59c7;  /* same hot pink family  */
+  background: #ff59c7;  /* same hot pink family as your “For recruiters” */
   color: #ffffff;
   border-color: transparent;
   box-shadow: 0 8px 24px rgba(255, 89, 199, 0.28);
@@ -142,73 +146,15 @@
   color: #fff;
 }
 
-/* 4) “For local swimmers & parents” section uses black text
-      (because that card/background is light in this theme) */
-.theme-goth #swim-path h2,
-.theme-goth #swim-path p,
-.theme-goth #swim-path li,
-.theme-goth #swim-path details,
-.theme-goth #swim-path summary {
-  color: #111111;
-}
-
-/* 5) Skills chips (right column) — black text for better contrast */
+/* 5) Skills chips — black text for better contrast */
 .theme-goth .pill-list li {
   color: #111111;
-  background: #f8c6e6; /* soft pink pill */
+  background: #f2c3d0;           /* soft Barbie pink pill */
   border: 1px solid rgba(0,0,0,0.06);
 }
 .theme-goth .pill-list li:hover {
   background: #ff94e0;           /* hover nudge */
   color: #111111;
-}
-/* Reset list look so they appear as pills */
-.theme-goth .values ul { list-style: none; padding: 0; margin: 0; }
-
-/* Catch-all for however those items are marked up (li, span, chip, pill, etc.) */
-.theme-goth .values li,
-.theme-goth .values .chip,
-.theme-goth .values .pill,
-.theme-goth .values [class*="chip"],
-.theme-goth .values [class*="pill"],
-.theme-goth .values [role="listitem"] {
-  background: #000 !important;
-  color: var(--text) !important;
-  border: 2px solid var(--primary) !important;   /* same pink border */
-  border-radius: 9999px !important;               /* pill shape */
-  padding: 0.5rem 0.9rem !important;
-  box-shadow: none !important;
-}
-
-/* Optional hover/focus */
-.theme-goth .values li:hover,
-.theme-goth .values .chip:hover,
-.theme-goth .values .pill:hover {
-  border-color: var(--accent) !important;
-}
-
-/* Fix dark cards so body text is readable */
-.theme-goth .card,
-.theme-goth .card p,
-.theme-goth .card li,
-.theme-goth .card span,
-.theme-goth .card a,
-.theme-goth .card strong,
-.theme-goth .card em {
-  color: #fff !important;   /* force white text */
-}
-
-/* Headings too */
-.theme-goth .card h1,
-.theme-goth .card h2,
-.theme-goth .card h3,
-.theme-goth .card h4 {
-  color: #fff !important;
-}
-
-/* Just the section title */
-.theme-goth .section.alt h2 {
-  color: #000 !important;
 }
 .theme-earthy {
   --bg: #faf7f2;
@@ -379,20 +325,6 @@ body {
 .hero--clean {
   background: #fff;
   box-shadow: inset 0 -1px 0 color-mix(in oklab, var(--muted) 12%, transparent);
-}
-
-/* Hero background with decorative palm tree */
-.hero--clean {
-  position: relative;
-  background: #fff;
-  box-shadow: inset 0 -1px 0 color-mix(in oklab, var(--muted) 12%, transparent);
-
-  /* Palm tree background (fixed) */
-  background-image: url("palm-tree.svg");
-  background-repeat: no-repeat;
-  background-size: 180px auto;
-  background-position: right bottom;
-  background-attachment: fixed;
 }
 
 /* Values band */
@@ -608,17 +540,150 @@ body.play-mode #mouseCursor{ display: block; }
   body.play-mode{ cursor: auto; }
   #mouseCursor, #cat{ display: none !important; }
 }
-
- /* Contact headshot styling */
-.headshot-wrap {
-  margin: 20px 0;
-  text-align: center;
+/* === ABOUT INTRO (fresh + theme-aware) === */
+.about-intro{
+  /* colors come from your theme tokens */
+  background: var(--surface, var(--bg));
+  color: var(--text);
+  padding: 48px 0 32px;
 }
 
-.headshot-wrap img {
-  width: 120px;          /* size of the circle */
-  height: 120px;
-  border-radius: 50%;    /* makes it circular */
-  object-fit: cover;     /* keeps face centered */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* soft shadow */
+/* Top banner layout */
+.about-hero{
+  max-width:none;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 28px;
+  
+}
+/* Better formatting for about-hero */
+.about-hero-photo img {
+  margin-right: -30px; /* fine-tune how far right the image goes */
+}
+
+.about-hero-photo {
+  justify-self: end; /* pushes the image to the right side of its grid cell */
+}
+
+/* Left: name block */
+.about-name{ }
+.about-title{
+  font-family: "CMU Serif", serif;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: .95;
+  margin: 0 0 15px;
+  color: var(--text);
+}
+/* Move margin for my "Hi I'm MaryRose" */
+.about-title {
+  max-width: none; /* removes any inherited max-width constraints */
+  line-height: 1.05;
+  font-size: clamp(42px, 6vw, 72px); /* hopefully this spans wider screens nicely */
+  white-space: nowrap;
+}
+
+.about-name {
+  align-self: start;
+  justify-self: start;
+  margin-left: 20px;
+}
+.about-kicker{
+  margin: 0 0 10px;
+  font-family: var(--ui-font, system-ui, sans-serif);
+  letter-spacing: .08em;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.about-subkicker{
+  margin: 24px 0 0;
+  font-family: var(--ui-font, system-ui, sans-serif);
+  font-size: 16px;
+  color: var(--text);
+}
+
+/* Center: large hero photo */
+.about-hero-photo img{
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  margin: 0;
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+}
+
+/* Right: contact + small headshot */
+.about-contact ul{
+  list-style: none;
+  padding: 0; margin: 0 0 18px;
+  display: grid; gap: 8px;
+}
+.about-contact a{
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.about-contact a:hover{
+  border-bottom-color: var(--primary);
+}
+.about-headshot img{
+  width: 150px; height: 150px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+}
+
+/* Icon row */
+.about-icons{
+  max-width:none;
+  margin: 16px auto 8px;
+  padding: 0 24px;
+  display: flex; justify-content: center; gap: 18px;
+  font-size: 26px;
+  color: var(--muted);
+}
+
+/* WHO I AM band */
+.about-who{
+  max-width:none;
+  margin: 26px auto 0;
+  padding: 0 24px;
+  display: grid; gap: 36px;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+}
+
+.about-circle img{
+  width: min(560px, 92%);
+  aspect-ratio: 1/1; object-fit: cover;
+  border-radius: 14px;               /* rounded square */
+  box-shadow: none;                   /* the .card provides shadow */
+}
+
+/* Right text */
+.about-who-copy{ color: var(--text); }
+.about-who-copy{ max-width: 560px; }
+.about-who-copy p{ margin: 0 0 12px; }
+.who-kicker{
+  letter-spacing: .3em; font-size: 12px; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 6px;
+  font-family: var(--ui-font, system-ui, sans-serif);
+}
+.who-title{
+  margin: 0 0 10px; color: var(--text);
+  font-family: "CMU Serif", serif;
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+/* Responsive */
+@media (max-width: 980px){ .about-hero{ grid-template-columns: 1.6fr 1fr; text-align: center; } .about-contact{ order: 3; } .about-headshot img{ margin-inline: auto; } .about-title{ white-space: normal; } }
+@media (max-width: 900px){
+  .about-who{ grid-template-columns: 1fr; }
+  .about-circle img{ width: min(420px, 80%); margin-inline: auto; }
 }
