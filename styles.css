@@ -683,6 +683,7 @@ body.play-mode #mouseCursor{ display: block; }
 
 /* Responsive */
 @media (max-width: 980px){ .about-hero{ grid-template-columns:1fr; text-align:center; } .about-hero-photo{ justify-self:center; } .about-hero-photo img{ width:min(520px,100%); height:auto; margin:20px auto 0; } }
+@media (max-width: 980px){ .about-hero-photo, .about-circle{ display:flex; justify-content:center; } .about-hero-photo img, .about-circle img{ display:block; margin:0 auto; width:min(520px,100%); height:auto; } }
 @media (max-width: 900px){
   .about-who{ grid-template-columns: 1fr; }
   .about-circle img{ width: min(420px, 80%); margin-inline: auto; }
