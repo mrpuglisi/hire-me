@@ -8,16 +8,10 @@
   const select = document.getElementById("vibe");
   if (select) {
     const KEY = "vibe4";
-    const saved = localStorage.getItem(KEY);
-    if (saved) {
-      body.classList.add("theme-" + saved);
-      select.value = saved;
-    }
     select.addEventListener("change", () => {
       body.classList.remove('theme-beach','theme-goth','theme-earthy','theme-gray');
       const v = select.value;
       body.classList.add("theme-" + v);
-      localStorage.setItem(KEY, v);
     });
   }
 
@@ -117,7 +111,7 @@
   /* ---------- Config (edit filenames here) ---------- */
   const EASE_CHASE = 0.14;               // chase responsiveness
   const RUNBACK_MS = 1200;               // run-back duration
-  const IDLE_ROTATE_MS = 90000;           // time each idle GIF shows
+  const IDLE_ROTATE_MS = 4000;           // time each idle GIF shows
   const FINAL_STATIC_TIMEOUT = 3600000;  // 1 hour (ms)
   const CLAMP_TO_HERO = false;           // keep chase inside hero if true
 
