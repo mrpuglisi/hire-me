@@ -24,6 +24,7 @@
    Goth Barbie (dark UI) - (previouslu "minimal bold")
    ======================= */
 .theme-goth {
+  
   /* Backgrounds */
   --bg: #0b0b0b;               /* near-black page background */
   --surface: #1c1c1c;          /* card/section surfaces */
@@ -46,10 +47,6 @@
   --ring: rgba(255,166,252,0.35);
   --shadow: 0 18px 40px rgba(0,0,0,0.55);
 }
-
-/* ===========================
-   Goth Barbie – updated colors
-   =========================== */
 
 /* (1) HERO: black panel with white type */
 .theme-goth .hero--clean {
@@ -155,6 +152,7 @@
 .theme-goth .pill-list li:hover {
   background: #ff94e0;           /* hover nudge */
   color: #111111;
+
 }
 .theme-earthy {
   --bg: #faf7f2;
@@ -185,6 +183,19 @@
   --grad-b: #f3a6c8;
 }
 
+/* Goth Barbie: CTA chips use black text + darker outline */
+.theme-goth .values-cta .cta-chips a{
+  color: #000;
+  box-shadow: inset 0 0 0 2.5px rgba(0,0,0,0.35);
+}
+
+.theme-goth .values-cta .cta-chips a:hover,
+.theme-goth .values-cta .cta-chips a:focus-visible{
+  box-shadow:
+    inset 0 0 0 2.5px rgba(0,0,0,0.55),
+    0 6px 18px rgba(0,0,0,0.25);
+}
+
 /* === Millennial Gray — :) === */
 .theme-gray {
   /* One flat gray for the whole canvas */
@@ -206,6 +217,7 @@
   --shadow:   none;
   --grad-a:   #e5e5e5;
   --grad-b:   #e5e5e5;
+
 
   /* Make text dark when a component uses the gray --primary */
 .theme-gray { --on-primary: #1f2937; }
@@ -328,10 +340,80 @@ body {
 }
 
 /* Values band */
-.values { background: linear-gradient(90deg, color-mix(in oklab, var(--grad-a) 40%, white), color-mix(in oklab, var(--grad-b) 40%, white)); }
-.values-inner { padding: 12px 0; }
-.values ul { list-style: none; display: flex; gap: 16px; flex-wrap: wrap; margin: 0; padding: 8px; justify-content: center; }
-.values li { background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 8%, transparent); border-radius: 999px; padding: 8px 12px; box-shadow: var(--shadow); }
+/* Values band */
+.values{
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--grad-a) 40%, white),
+    color-mix(in oklab, var(--grad-b) 40%, white)
+  );
+  background-attachment: fixed;
+}
+
+.values-inner{ padding: 12px 0; }
+
+/* If you still have the old list anywhere, this keeps it tidy */
+.values ul{
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 8px;
+  justify-content: center;
+}
+
+.values li{
+  background: var(--surface);
+  border: 1px solid color-mix(in oklab, var(--text) 8%, transparent);
+  border-radius: 999px;
+  padding: 8px 12px;
+  box-shadow: var(--shadow);
+}
+
+/* Values band CTA chips */
+.values-cta .cta-chips{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.values-cta .cta-chips a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 14px;
+  min-height: 44px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Seamless gradient look */
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--grad-a) 40%, white),
+    color-mix(in oklab, var(--grad-b) 40%, white)
+  );
+  background-attachment: fixed;
+
+  /* Define the pill edge without breaking the “one surface” feel */
+  border: 0;
+  box-shadow: inset 0 0 0 2.5px color-mix(in oklab, var(--text) 18%, transparent);
+}
+
+.values-cta .cta-chips a:hover,
+.values-cta .cta-chips a:focus-visible{
+  box-shadow:
+    inset 0 0 0 2.5px color-mix(in oklab, var(--primary) 55%, transparent),
+    0 6px 18px color-mix(in oklab, var(--primary) 22%, transparent);
+
+  transform: translateY(-1px);
+}
 
 /* Sections */
 .section { padding: 64px 0; }
@@ -490,56 +572,7 @@ body {
 .rotate-words { display: inline-block; position: relative; min-width: 80px; }
 .rotate-words.fade { opacity: 0; transition: opacity 0.5s ease; }
 
-/* =========================================================
-   MOUSE HOUSE + CAT (GIF version)
-   ========================================================= */
-.mouse-house{
-  position: fixed;
-  top: 14px; right: 14px;
-  width: 44px; height: 44px;
-  border: 1px solid color-mix(in oklab, var(--text) 14%, transparent);
-  padding: 6px; border-radius: 12px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  z-index: 10000; /* above everything */
-}
-.mouse-house svg{ display:block; }
-.mouse-house:focus-visible{ outline: 3px solid var(--ring); }
-/* keep visible when pressed */
-.mouse-house[aria-pressed="true"]{
-  background: color-mix(in oklab, var(--accent-2) 60%, white);
-  border-color: color-mix(in oklab, var(--primary) 35%, white);
-}
 
-/* Cat is an <img> (no background sprites) */
-#cat{
-  position: fixed;
-  left: 24px;          /* dock: left side */
-  top: 120px;          /* nudge to sit on the banner */
-  width: 120px; height: auto;
-  z-index: 9998; pointer-events: none;
-  transition: transform .15s linear;
-  object-fit: contain;
-  will-change: left, top, transform;
-}
-#cat.flip{ transform: scaleX(-1); }
-
-/* Custom mouse cursor (only during play) */
-#mouseCursor{
-  position: fixed; width: 32px; height: 32px;
-  left: 0; top: 0; transform: translate(-50%,-50%);
-  pointer-events: none; z-index: 9999; display: none;
-}
-body.play-mode{ cursor: none; }
-body.play-mode #mouseCursor{ display: block; }
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce),
-       (pointer: coarse){
-  body.play-mode{ cursor: auto; }
-  #mouseCursor, #cat{ display: none !important; }
-}
 /* === ABOUT INTRO (fresh + theme-aware) === */
 .about-intro{
   /* colors come from your theme tokens */
