@@ -1,6 +1,9 @@
 /* ===========================
    Site UI (theme, nav, tabs)
    =========================== */
+// HARD DISABLE CAT GAME ON MOBILE
+if (window.matchMedia("(max-width: 860px)").matches) return;
+
 (function () {
   const body = document.body;
 
