@@ -215,6 +215,15 @@ section.block{padding:72px 0}
 .sub-role h4{margin:0 0 4px;font-size:1.08rem}
 .exit-note,.role-note{color:var(--muted);font-size:.95rem;margin:-6px 0 12px}
 .exit-note{font-style:italic}
+/* Photo fixes: keep proportions, balanced sizing */
+.photo-wrap img{height:auto}
+.about-grid{align-items:center}
+.about-grid img{height:auto;width:100%;max-width:380px;aspect-ratio:4/5;object-position:center;justify-self:center}
+@media print{
+  #about{break-inside:avoid;page-break-inside:avoid}
+  .about-grid img{width:44mm;max-width:44mm}
+  .about-text{max-width:none}
+}
 .todo{background:repeating-linear-gradient(45deg,transparent 0 8px,rgba(0,0,0,.035) 8px 16px);outline:2px dashed var(--pop);outline-offset:2px;border-radius:6px;padding:0 4px}
 
 /* Case studies */
@@ -417,7 +426,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <!-- ABOUT -->
 <section class="block" id="about">
   <div class="wrap about-grid">
-    <img src="pinksuit.jpeg" alt="Rose in a pink suit beside a summit session schedule sign" width="898" height="1200" loading="lazy">
+    <img src="pinksuit-cropped.jpg" alt="Rose in a pink suit beside a summit session schedule sign" width="919" height="1149" loading="lazy">
     <div class="about-text">
       <div class="sec-head"><h2>About me (she/her)</h2></div>
       <p>I grew up in the Northeast, always wishing for something different. One cold morning I realized nothing was stopping me, so I packed up my car and my little family and drove to St. Petersburg, Florida, to be closer to the ocean and the outdoors.</p>
@@ -665,7 +674,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div class="wrap two-col">
     <div class="card list-card">
       <h3>Beyond the day job</h3>
-      <div class="item"><span class="yr">2024–now</span><h4>Product and strategy consultant, <a href="https://meetvalence.com/features" target="_blank" rel="noopener" data-print="meetvalence.com">Valence</a></h4><p>Advising on product strategy for all-in-one gym management software built for independent operators, covering billing, scheduling, payroll, POS, and member CRM.</p></div>
+      <div class="item"><span class="yr">2024–now</span><h4>Product and strategy consultant, <a href="https://meetvalence.com/about" target="_blank" rel="noopener" data-print="meetvalence.com">Valence</a></h4><p>Advising on product strategy for all-in-one gym management software built for independent operators, covering billing, scheduling, payroll, POS, and member CRM.</p></div>
       <div class="item"><span class="yr">2006–now</span><h4>Private swim instructor</h4><p>Self-employed, American Red Cross certified. Teaching swimmers of all ages, focused on safety, stroke technique, and confidence in open water.</p></div>
       <div class="item"><span class="yr">2025–now</span><h4>Yoga instructor (RYT)</h4><p>Donation-based, trauma-informed classes in vinyasa, yin, and restorative yoga, using invitational cueing, somatic awareness, and myofascial release to support nervous system regulation.</p></div>
       <div class="item"><span class="yr">2024–2025</span><h4>Community creative director, Beech Kombucha Brewery</h4><p>Shaped brand identity, event programming, and merchandise, and supported website improvements and subscription planning.</p></div>
