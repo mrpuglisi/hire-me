@@ -230,11 +230,12 @@ section.block{padding:72px 0}
 .shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:4px 0 16px}
 .case.featured .shots{grid-template-columns:repeat(3,1fr)}
 .shots.one{grid-template-columns:1fr}
+.case.wide{grid-column:1/-1}
 .shots figure{margin:0}
 .shots img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:var(--r-sm)}
 .shots figcaption{font-size:.82rem;line-height:1.35;color:var(--muted);margin-top:6px}
 .shots figcaption a{color:var(--accent)}
-.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:start}
 .case.featured{grid-column:1/-1;border-width:2px;border-style:dashed;border-color:var(--pop)}
 .case h3{font-size:1.4rem}
 .case .hook{color:var(--muted);margin:6px 0 12px}
@@ -589,18 +590,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         </details>
       </article>
 
-      <article class="card case">
-        <h3>Attribution under state privacy laws</h3>
-        <p class="hook">Discovery work, Zartico</p>
-        <p class="for"><b>Built for:</b> destinations in states with geo-based privacy laws</p>
+      <article class="card case wide">
+        <h3>Building Zartico's first analytics dashboard, with AI built in</h3>
+        <p class="hook">Analytics and AI, Zartico</p>
+        <p class="for"><b>Built for:</b> DMOs, CVBs, and their agencies</p>
         <details><summary>Read more</summary><dl>
-          <dt>Problem</dt><dd>Standard attribution pipelines rely on geolocation, which new state privacy laws restrict for some destinations.</dd>
-          <dt>Approach</dt><dd>Explored replacing geo-based attribution with spend-based attribution for affected destinations, a fundamentally different model.</dd>
-          <dt>Status</dt><dd>In discovery in 2026. An open problem, and one I'd love to keep working on.</dd>
+          <dt>Problem</dt><dd>Media attribution analytics lived in a third-party BI tool, destinations depended on Zartico or their agencies to see their own data, and wrap reports took manual work.</dd>
+          <dt>Approach</dt><dd>Moved the analytics into Zartico's own dashboard, the company's first, using AI to help design, build, and test it. Added roles and permissions so destinations could see their own data directly, and layered help: curated answers first, then AI answers to follow-up questions.</dd>
+          <dt>Result</dt><dd>Support questions dropped to nearly zero. Every campaign gets an auto-generated wrap report, about 100 a year, combining AI-written analysis with tested scenario wording.</dd>
+          <dt>Key decision</dt><dd>Use AI where fresh answers help, and tested wording where consistency matters.</dd>
         </dl></details>
       </article>
 
-      <article class="card case">
+            <article class="card case">
         <h3>Modernizing a booking platform</h3>
         <p class="hook">Book › Direct, Granicus</p>
         <p class="for"><b>Built for:</b> DMOs and their hotel and vacation rental partners</p>
@@ -673,6 +675,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           <dt>Approach</dt><dd>Implemented micro-sites where vendors could manage bookings, payments, and profiles on their own.</dd>
           <dt>Result</dt><dd>Less manual work for organizers and a repeatable setup that scaled.</dd>
           <dt>Key decision</dt><dd>Shift from manual organizer workflows to self-service portals so events could grow without more headcount.</dd>
+        </dl></details>
+      </article>
+
+      <article class="card case">
+        <h3>Attribution under state privacy laws</h3>
+        <p class="hook">Discovery work, Zartico</p>
+        <p class="for"><b>Built for:</b> destinations in states with geo-based privacy laws</p>
+        <details><summary>Read more</summary><dl>
+          <dt>Problem</dt><dd>Standard attribution pipelines rely on geolocation, which new state privacy laws restrict for some destinations.</dd>
+          <dt>Approach</dt><dd>Explored replacing geo-based attribution with spend-based attribution for affected destinations, a fundamentally different model.</dd>
+          <dt>Status</dt><dd>Scoped a spend-based model as an alternative for destinations in states with geo-privacy laws. It was in discovery when my role ended.</dd>
+        </dl></details>
+      </article>
+
+      <article class="card case">
+        <h3>Scheduled email reports</h3>
+        <p class="hook">Prototyping, Zartico</p>
+        <p class="for"><b>Built for:</b> DMO leaders and the stakeholders they report to</p>
+        <details><summary>Read more</summary><dl>
+          <dt>Problem</dt><dd>Stakeholders had to log in to pull campaign results, so reports were often late or never reached the people who fund the campaigns.</dd>
+          <dt>Approach</dt><dd>Designed scheduled delivery of report snapshots by email, so customers could choose who gets which report and how often.</dd>
+          <dt>Status</dt><dd>In prototyping when my role ended.</dd>
+          <dt>Key decision</dt><dd>Bring results to where stakeholders already are, their inbox, instead of asking them to log in.</dd>
         </dl></details>
       </article>
     </div>
