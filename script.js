@@ -4,7 +4,7 @@
     beach:{name:'Beach day',emoji:'🌊',verb:'build',caption:'SPF 50 on. Sharks and gators probably nearby.'},
     dreamhouse:{name:"Barbie's dream house",emoji:'💖',verb:'dream up',caption:'Everything is pink. That was the requirement.'},
     crunchy:{name:'Crunchy vegan',emoji:'🥕',verb:'grow',caption:'100% plant-based product thinking. Oat milk on request.'},
-    gray:{name:'Millennial gray',emoji:'🌫️',verb:'optimize',caption:'Tasteful, neutral, and approved by your landlord.'}
+    gray:{name:'Millennial gray',emoji:'🌫️',verb:'optimize',caption:'Tasteful, neutral, and approved by your landlord (but definitely <em>not</em> the UX team).'}
   };
   var root=document.documentElement, verb=document.getElementById('verb');
   function setVibe(key,animate){
@@ -13,7 +13,7 @@
     document.querySelectorAll('.vibe-btn').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===key?'true':'false')});
     document.getElementById('vibe-emoji').textContent=v.emoji;
     document.getElementById('vibe-name').textContent=v.name+'.';
-    document.getElementById('vibe-caption').textContent=v.caption;
+    document.getElementById('vibe-caption').innerHTML=v.caption;
     document.getElementById('foot-note').textContent='Currently viewing: '+v.name+' '+v.emoji;
     document.getElementById('vt-emoji').textContent=v.emoji;
     document.getElementById('vt-name').textContent=v.name;
