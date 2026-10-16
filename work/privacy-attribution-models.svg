@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-labelledby="t d">
+  <title id="t">Two ways to show an ad drove a visit</title>
+  <desc id="d">Side-by-side comparison. Geo-based attribution links an ad to a visit through device location data, which some state privacy laws restrict. Spend-based attribution, the model explored in discovery, links an ad to a visit through spending in the destination, without location data.</desc>
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#9AA5B1"/></marker>
+    <marker id="at" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2A9D8F"/></marker>
+    <!-- icons -->
+    <g id="ad">
+      <rect x="-62" y="-48" width="124" height="86" rx="10" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="5"/>
+      <rect x="-20" y="38" width="40" height="14" fill="#1B2A4A"/>
+      <rect x="-42" y="52" width="84" height="8" rx="4" fill="#1B2A4A"/>
+      <text x="0" y="8" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#1B2A4A">AD</text>
+    </g>
+    <g id="dest">
+      <rect x="-58" y="-30" width="116" height="90" rx="6" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="5"/>
+      <path d="M-72 -26 L0 -78 L72 -26 Z" fill="#1B2A4A"/>
+      <rect x="-16" y="18" width="32" height="42" fill="#1B2A4A"/>
+      <rect x="-44" y="-10" width="22" height="20" fill="#2A9D8F"/>
+      <rect x="22" y="-10" width="22" height="20" fill="#2A9D8F"/>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="750" rx="36" fill="#F4F6F9"/>
+  <text x="600" y="86" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="800" fill="#1F2937">Two ways to show an ad drove a visit</text>
+
+  <!-- LEFT: geo-based -->
+  <rect x="50" y="130" width="530" height="560" rx="24" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="2"/>
+  <text x="315" y="190" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#1F2937">Geo-based</text>
+  <text x="315" y="224" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" fill="#5B6B7F">The standard model</text>
+
+  <use href="#ad" x="140" y="370"/>
+  <!-- phone with location pin -->
+  <g transform="translate(315 370)">
+    <rect x="-38" y="-66" width="76" height="132" rx="14" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="5"/>
+    <path d="M0 -36 C-20 -36 -28 -20 -28 -10 C-28 8 0 30 0 30 C0 30 28 8 28 -10 C28 -20 20 -36 0 -36 Z" fill="#9AA5B1"/>
+    <circle cx="0" cy="-11" r="9" fill="#FFFFFF"/>
+  </g>
+  <use href="#dest" x="490" y="380"/>
+  <line x1="210" y1="370" x2="262" y2="370" stroke="#9AA5B1" stroke-width="5" marker-end="url(#ag)"/>
+  <line x1="362" y1="370" x2="410" y2="370" stroke="#9AA5B1" stroke-width="5" marker-end="url(#ag)"/>
+
+  <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" fill="#5B6B7F" text-anchor="middle">
+    <text x="140" y="470">Sees an ad</text>
+    <text x="315" y="470">Phone location</text>
+    <text x="490" y="470">Visits</text>
+  </g>
+
+  <!-- restricted stamp across the location step -->
+  <g transform="translate(315 282) rotate(-6)">
+    <rect x="-162" y="-24" width="324" height="48" rx="8" fill="#FFFFFF" stroke="#E76F51" stroke-width="4"/>
+    <text x="0" y="9" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="0.5" fill="#E76F51">RESTRICTED IN SOME STATES</text>
+  </g>
+
+  <rect x="100" y="560" width="430" height="80" rx="16" fill="#FCEDE8"/>
+  <text x="315" y="594" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#9A3B22">Relies on device location data,</text>
+  <text x="315" y="622" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#9A3B22">which new privacy laws limit</text>
+
+  <!-- RIGHT: spend-based -->
+  <rect x="620" y="130" width="530" height="560" rx="24" fill="#FFFFFF" stroke="#2A9D8F" stroke-width="3"/>
+  <text x="885" y="190" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#1F2937">Spend-based</text>
+  <text x="885" y="224" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" fill="#5B6B7F">The model I scoped in discovery</text>
+
+  <use href="#ad" x="710" y="370"/>
+  <!-- payment card -->
+  <g transform="translate(885 370)">
+    <rect x="-62" y="-42" width="124" height="84" rx="10" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="5"/>
+    <rect x="-62" y="-22" width="124" height="16" fill="#1B2A4A"/>
+    <rect x="-46" y="12" width="40" height="12" rx="3" fill="#2A9D8F"/>
+    <text x="34" y="27" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#2A9D8F">$</text>
+  </g>
+  <use href="#dest" x="1060" y="380"/>
+  <line x1="780" y1="370" x2="812" y2="370" stroke="#2A9D8F" stroke-width="5" marker-end="url(#at)"/>
+  <line x1="955" y1="370" x2="980" y2="370" stroke="#2A9D8F" stroke-width="5" marker-end="url(#at)"/>
+
+  <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" fill="#5B6B7F" text-anchor="middle">
+    <text x="710" y="470">Sees an ad</text>
+    <text x="885" y="470">Spends locally</text>
+    <text x="1060" y="470">Visits</text>
+  </g>
+
+  <rect x="670" y="560" width="430" height="80" rx="16" fill="#E3F4F1"/>
+  <text x="885" y="594" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#1D6B61">Measures visits through spending,</text>
+  <text x="885" y="622" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#1D6B61">without location data</text>
+</svg>

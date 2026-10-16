@@ -227,7 +227,17 @@ section.block{padding:72px 0}
 .todo{background:repeating-linear-gradient(45deg,transparent 0 8px,rgba(0,0,0,.035) 8px 16px);outline:2px dashed var(--pop);outline-offset:2px;border-radius:6px;padding:0 4px}
 
 /* Case studies */
-.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:4px 0 16px}
+.case.featured .shots{grid-template-columns:repeat(3,1fr)}
+.shots.one{grid-template-columns:1fr}
+.shots.one img{aspect-ratio:32/10}
+@media (max-width:640px){.shots.one img{aspect-ratio:16/10}}
+.case.wide{grid-column:1/-1}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:var(--r-sm)}
+.shots figcaption{font-size:.82rem;line-height:1.35;color:var(--muted);margin-top:6px}
+.shots figcaption a{color:var(--accent)}
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:start}
 .case.featured{grid-column:1/-1;border-width:2px;border-style:dashed;border-color:var(--pop)}
 .case h3{font-size:1.4rem}
 .case .hook{color:var(--muted);margin:6px 0 12px}
@@ -287,6 +297,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .proof-row{grid-template-columns:repeat(2,1fr)}
   .lead-grid,.skills,.quotes{grid-template-columns:1fr}
   .cases{grid-template-columns:1fr}
+  .case.featured .shots{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:640px){
   .vt-name{display:none}
@@ -297,6 +308,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .sticker{left:-8px}
   section.block{padding:56px 0}
 }
+@media (max-width:640px){.shots,.case.featured .shots{grid-template-columns:1fr}}
+@media print{.shots{display:none}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
@@ -334,7 +347,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 /* ---------- Logos, progressive disclosure, utilities ---------- */
 .when{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-.logo{width:72px;height:auto;max-height:44px;object-fit:contain;display:block;margin-bottom:10px}
+.logo{width:56px;height:56px;object-fit:contain;display:block;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.job > div + div{display:grid;grid-template-columns:56px 1fr;column-gap:18px;align-content:start}
+.job > div + div > *{grid-column:2}
+.job > div + div > .logo{grid-column:1;grid-row:1 / span 2;margin-top:2px}
+.item.has-logo{display:grid;grid-template-columns:44px 1fr;column-gap:14px}
+.item.has-logo > *{grid-column:2}
+.item.has-logo > .logo,.item.has-logo > .mono{grid-column:1;grid-row:1 / span 3;width:44px;height:44px;border-radius:12px;margin-top:2px}
+.mono{display:grid;place-items:center;background:var(--soft);color:var(--ink);font-weight:800;font-size:1.05rem;border:1px solid var(--line)}
 .when .logo{display:none}
 .job .logo{margin:0 0 8px}
 [data-vibe="gray"] .logo{filter:grayscale(1)}
@@ -450,6 +470,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <div class="card"><h3>Prove it with data</h3><p>From attribution to reporting standards, I build the measurement that lets customers and executives see what's working and fund what's next.</p></div>
       <div class="card"><h3>Ship with discipline</h3><p>I formalized planning practices and SOPs at Granicus that cut planning errors and delivery mismatches by about 30% across two program increments. I judge a launch by whether customers adopt it, not by whether it shipped on time.</p></div>
       <div class="card"><h3>Make strategy repeatable</h3><p>Strategy only works if people can repeat it. I turn roadmaps, data, and launches into a clear narrative of what's changing, why it matters, and what happens next, so executives fund it, sales can sell it, and customers adopt it.</p></div>
+    </div>
   </div>
 </section>
 
@@ -461,8 +482,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li class="job current">
         <div class="when">2026</div>
         <div>
-          <h3>Product Manager</h3>
-          <img class="logo" src="logos/zartico.png" alt="" loading="lazy" onerror="this.remove()"><p class="org">Zartico <span class="tag">Destination analytics</span></p>
+          <img class="logo" src="logos/zartico.png" alt="" loading="lazy" onerror="this.remove()"><h3>Product Manager</h3>
+          <p class="org">Zartico <span class="tag">Destination analytics</span></p>
           <ul>
             <li>Launched the first international media attribution pipeline of its kind, with our own methodology for bot filtering and U.K. privacy compliance. It went live September 1 and was adopted by 3 customers upon sales rollout.</li>
             <li>Took a second pipeline to market, built specifically for state DMOs and CVBs.</li>
@@ -478,8 +499,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li class="job">
         <div class="when">2021–2025</div>
         <div>
-          <h3>Product Manager</h3>
-          <img class="logo" src="logos/granicus.png" alt="" loading="lazy" onerror="this.remove()"><p class="org">Granicus (formerly Simpleview)</p>
+          <img class="logo" src="logos/granicus.png" alt="" loading="lazy" onerror="this.remove()"><h3>Product Manager</h3>
+          <p class="org">Granicus (formerly Simpleview)</p>
           <p class="role-note">Directed an offshore engineering team's day-to-day work and feedback, interviewed candidates regularly, and onboarded new hires formally and informally.</p>
           <div>
             <h4>GovDelivery <span class="tag">GovTech</span></h4>
@@ -504,8 +525,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li class="job">
         <div class="when">2020–2021</div>
         <div>
-          <h3>SaaS Implementation Project Manager</h3>
-          <img class="logo" src="logos/personify.png" alt="" loading="lazy" onerror="this.remove()"><p class="org">Personify <span class="tag">Event tech</span></p>
+          <img class="logo" src="logos/personify.png" alt="" loading="lazy" onerror="this.remove()"><h3>SaaS Implementation Project Manager</h3>
+          <p class="org">Personify <span class="tag">Event tech</span></p>
           <ul>
             <li>Led onboarding, training, and implementation across 200 to 300 enterprise clients, each running up to six events a year, owning setup and launch timelines from kickoff to go-live.</li>
             <li>Configured and troubleshot API integrations between Personify and client systems, building the technical foundation I've relied on in every product role since.</li>
@@ -517,8 +538,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li class="job">
         <div class="when">2019–2020</div>
         <div>
-          <h3>Sales Manager</h3>
-          <img class="logo" src="logos/ges.png" alt="" loading="lazy" onerror="this.remove()"><p class="org">GES, Inc. <span class="tag">Event and tradeshow management</span></p>
+          <img class="logo" src="logos/ges.png" alt="" loading="lazy" onerror="this.remove()"><h3>Sales Manager</h3>
+          <p class="org">GES, Inc. <span class="tag">Event and tradeshow management</span></p>
           <ul>
             <li>Managed East Coast accounts for citywide events with 10,000+ attendees, developing pricing strategies, negotiating contracts, and directing logistics to secure repeat business.</li>
             <li>Built sponsorship and advertising programs for shows: set up each client's sponsor website, sized vinyl and signage placements across the venue, and priced every location.</li>
@@ -530,8 +551,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li class="job">
         <div class="when">2017–2019</div>
         <div>
-          <h3>Sales Manager</h3>
-          <img class="logo" src="logos/baltimore-convention-center.png" alt="" loading="lazy" onerror="this.remove()"><p class="org">Baltimore Convention Center <span class="tag">Hospitality</span></p>
+          <img class="logo" src="logos/baltimore-convention-center.png" alt="" loading="lazy" onerror="this.remove()"><h3>Sales Manager</h3>
+          <p class="org">Baltimore Convention Center <span class="tag">Hospitality</span></p>
           <ul>
             <li>Sold Baltimore as a destination for national association and corporate meetings: prospected and qualified leads, answered RFPs with custom proposals and bid presentations, and negotiated contracts.</li>
             <li>Led site inspections and FAM tours for meeting planners, partnering with Visit Baltimore, city hotels, and city officials on citywide pitches.</li>
@@ -544,8 +565,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li class="job">
         <div class="when">2012–2016</div>
         <div>
-          <h3>Operations Coordinator, Event Services</h3>
-          <img class="logo" src="logos/loyola.png" alt="" loading="lazy" onerror="this.remove()"><p class="org">Loyola University Maryland <span class="tag">Event operations</span></p>
+          <img class="logo" src="logos/loyola.png" alt="" loading="lazy" onerror="this.remove()"><h3>Operations Coordinator, Event Services</h3>
+          <p class="org">Loyola University Maryland <span class="tag">Event operations</span></p>
           <ul>
             <li>Led a team of 20 to 30 staff at a time across event logistics, setup and breakdown, A/V, and scheduling.</li>
             <li>Ran guest services and hospitality for campus events and summer conference housing, hosting outside groups in the residence halls.</li>
@@ -566,7 +587,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <h3>Launching new media attribution pipelines</h3>
         <p class="hook">Zartico Media Attribution (ZMA) and Campaign Hub</p>
         <p class="for"><b>Built for:</b> DMOs, state tourism offices, CVBs, and their marketing agencies</p>
-        <details open>
+        <div class="shots"><figure><a href="work/zma-international.webp" target="_blank" rel="noopener"><img src="work/zma-international.webp" width="500" height="520" alt="International media attribution report showing exposed visitors and visits by origin country" loading="lazy"></a><figcaption>International attribution, the pipeline I launched. Image: <a href="https://www.zartico.com/media-attribution" target="_blank" rel="noopener">Zartico</a></figcaption></figure><figure><a href="work/zma-dashboard.webp" target="_blank" rel="noopener"><img src="work/zma-dashboard.webp" width="670" height="400" alt="Media attribution dashboard with ad-exposed visitors, conversion rate, and vendor performance" loading="lazy"></a><figcaption>Campaign performance by vendor. Image: Zartico</figcaption></figure><figure><a href="work/zma-visitor-behavior.webp" target="_blank" rel="noopener"><img src="work/zma-visitor-behavior.webp" width="1400" height="584" alt="Comparison of ad-exposed and non-exposed visitor behavior by category and region" loading="lazy"></a><figcaption>How ads change what visitors do and where they go. Image: Zartico</figcaption></figure></div>
+        <details>
           <summary>Read more</summary>
           <dl>
             <dt>Problem</dt><dd>The standard domestic attribution pipeline didn't fit every customer. Destinations marketing to international travelers, and state-level DMOs and CVBs, needed attribution built for how they actually spend.</dd>
@@ -577,25 +599,28 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         </details>
       </article>
 
-      <article class="card case">
-        <h3>Attribution under state privacy laws</h3>
-        <p class="hook">Discovery work, Zartico</p>
-        <p class="for"><b>Built for:</b> destinations in states with geo-based privacy laws</p>
+      <article class="card case wide">
+        <h3>Building Zartico's first analytics dashboard, with AI built in</h3>
+        <p class="hook">Analytics and AI, Zartico</p>
+        <p class="for"><b>Built for:</b> DMOs, CVBs, and their agencies</p>
+        <div class="shots"><figure><a href="work/zma-dashboard-overview.webp" target="_blank" rel="noopener"><img src="work/zma-dashboard-overview.webp" width="1600" height="769" alt="Media attribution dashboard with impressions, ad-exposed visitors, conversion rate, and conversion growth over a campaign" loading="lazy"></a><figcaption>The dashboard I designed, with one-click data downloads. Demo data.</figcaption></figure><figure><a href="work/zma-download-data.webp" target="_blank" rel="noopener"><img src="work/zma-download-data.webp" width="1345" height="746" alt="Download Data Files dialog bundling 23 CSV reports into a ZIP, campaign to date or full history" loading="lazy"></a><figcaption>Every report in one ZIP, campaign to date or full history. Demo data.</figcaption></figure><figure><a href="work/campaign-hub-campaigns.webp" target="_blank" rel="noopener"><img src="work/campaign-hub-campaigns.webp" width="1600" height="331" alt="Campaign Hub list with status, pixel fire report, dashboard, and wrap report for each campaign" loading="lazy"></a><figcaption>Campaign Hub: status, pixel health, dashboard, and wrap report for each campaign. Demo data.</figcaption></figure><figure><a href="work/campaign-hub-spend.webp" target="_blank" rel="noopener"><img src="work/campaign-hub-spend.webp" width="648" height="442" alt="Field to set media spend for all of a vendor's pixels at once" loading="lazy"></a><figcaption>Spend fields by pixel, so customers can see CPA and ROI.</figcaption></figure></div>
         <details><summary>Read more</summary><dl>
-          <dt>Problem</dt><dd>Standard attribution pipelines rely on geolocation, which new state privacy laws restrict for some destinations.</dd>
-          <dt>Approach</dt><dd>Explored replacing geo-based attribution with spend-based attribution for affected destinations, a fundamentally different model.</dd>
-          <dt>Status</dt><dd>In discovery in 2026. An open problem, and one I'd love to keep working on.</dd>
+          <dt>Problem</dt><dd>Media attribution analytics lived in a third-party BI tool, destinations depended on Zartico or their agencies to see their own data, and wrap reports took manual work.</dd>
+          <dt>Approach</dt><dd>Moved the analytics into Zartico's own dashboard, the company's first, using AI to help design, build, and test it. Added roles and permissions so destinations could see their own data directly, spend fields by pixel so they could see CPA and ROI, and layered help: curated answers first, then AI answers to follow-up questions.</dd>
+          <dt>Result</dt><dd>Support questions dropped to nearly zero. Every campaign gets an auto-generated wrap report, about 100 a year, combining AI-written analysis with tested scenario wording.</dd>
+          <dt>Key decision</dt><dd>Use AI where fresh answers help, and tested wording where consistency matters.</dd>
         </dl></details>
       </article>
 
-      <article class="card case">
+            <article class="card case">
         <h3>Modernizing a booking platform</h3>
         <p class="hook">Book › Direct, Granicus</p>
         <p class="for"><b>Built for:</b> DMOs and their hotel and vacation rental partners</p>
+        <div class="shots"><figure><a href="work/bookdirect-widget-poconos.webp" target="_blank" rel="noopener"><img src="work/bookdirect-widget-poconos.webp" width="1400" height="355" alt="Book Direct lodging search widget with hotel and vacation rental tabs and date pickers" loading="lazy"></a><figcaption>Search widget, live on <a href="https://www.poconomountains.com/places-to-stay/" target="_blank" rel="noopener">Visit Pocono Mountains</a></figcaption></figure><figure><a href="work/bookdirect-listings-greenville.webp" target="_blank" rel="noopener"><img src="work/bookdirect-listings-greenville.webp" width="1400" height="722" alt="Hotel listings showing live rates, Book Now buttons, and a bookable-only filter" loading="lazy"></a><figcaption>Live rates and a bookable-only filter on <a href="https://www.visitgreenvillesc.com/places-to-stay/" target="_blank" rel="noopener">Visit Greenville SC</a></figcaption></figure></div>
         <details><summary>Read more</summary><dl>
           <dt>Problem</dt><dd>The legacy hotel referral platform was broken, with major client churn risk, no documentation, and no remaining experts after engineering turnover.</dd>
-          <dt>Approach</dt><dd>Relearned the product from the code up alongside a one-person engineering team, then owned the full roadmap and redefined integrations with hotel APIs.</dd>
-          <dt>Result</dt><dd>Stabilized retention risk, unlocked live pricing connections, and moved the product from maintenance mode to growth. Repackaging it as an add-on brought in more purchases and users.</dd>
+          <dt>Approach</dt><dd>Relearned the product from the code up alongside a one-person engineering team, then owned the full roadmap and redefined integrations with hotel APIs. Partnered with our designer on the widget and listing experience, ran internal campaigns to find the best placements to recommend to customers, and built the product's reports on Simpleview's data warehouse, with my customers as the Data Engine's beta users.</dd>
+          <dt>Result</dt><dd>Stabilized retention risk, unlocked live pricing connections, and moved the product from maintenance mode to growth. Repackaging it as an add-on brought in more purchases and users, and customers like Discover Dunwoody reported <a href="https://www.simpleviewinc.com/blog/stories/post/the-power-behind-bookings-discover-dunwoody-scored-over-832k-in-hotel-revenue-using-book-direct/" target="_blank" rel="noopener">$832K+ in hotel revenue through Book &#8250; Direct</a>.</dd>
           <dt>Key decision</dt><dd>Sunset the legacy referral logic and rebuild around live rates APIs to reduce churn and enable long-term growth.</dd>
         </dl></details>
       </article>
@@ -604,23 +629,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <h3>Driving clicks with partner integrations</h3>
         <p class="hook">CMS and CRM integrations, Granicus</p>
         <p class="for"><b>Built for:</b> destination websites and their local partners</p>
+        <div class="shots"><figure><a href="work/viator-new-orleans-tours.webp" target="_blank" rel="noopener"><img src="work/viator-new-orleans-tours.webp" width="500" height="409" alt="New Orleans tour listings with prices, reviews, and Buy Tickets buttons" loading="lazy"></a><figcaption>Bookable tours on New Orleans &amp; Company's site. Image: Simpleview</figcaption></figure><figure><a href="work/viator-new-orleans-results.webp" target="_blank" rel="noopener"><img src="work/viator-new-orleans-results.webp" width="600" height="650" alt="Results graphic: first booking on day one, 700+ tours booked, $85K+ in net bookings" loading="lazy"></a><figcaption>Results after launch. Image: <a href="https://www.simpleviewinc.com/blog/stories/post/new-orleans-company-on-pace-to-provide-partners-with-300k-in-annual-revenue/" target="_blank" rel="noopener">Simpleview</a></figcaption></figure></div>
         <details><summary>Read more</summary><dl>
           <dt>Problem</dt><dd>Destination organizations needed to show listings, events, and offers seamlessly across their websites.</dd>
-          <dt>Approach</dt><dd>Led integrations with Viator, Ticketmaster, Yelp, TripAdvisor, and similar providers while tuning UI flows for engagement.</dd>
-          <dt>Result</dt><dd>5x more user clicks on tourism websites when an integration was present.</dd>
+          <dt>Approach</dt><dd>Led integrations with Viator, Ticketmaster, Yelp, TripAdvisor, and similar providers while tuning UI flows for engagement. For Viator, we built bookable tours and attractions right into the New Orleans site's existing design instead of sending visitors away.</dd>
+          <dt>Result</dt><dd>5x more user clicks on tourism websites when an integration was present. Our Viator beta partner, New Orleans &amp; Company, launched in September 2023, took its first booking on day one, and by year end had <a href="https://www.simpleviewinc.com/blog/stories/post/new-orleans-company-on-pace-to-provide-partners-with-300k-in-annual-revenue/" target="_blank" rel="noopener">700+ tours booked and $85K+ in net bookings for local partners</a>.</dd>
           <dt>Key decision</dt><dd>Prioritize high-signal partner integrations over one-off custom builds.</dd>
-        </dl></details>
-      </article>
-
-      <article class="card case">
-        <h3>Defining reporting standards</h3>
-        <p class="hook">Data reporting, Granicus</p>
-        <p class="for"><b>Built for:</b> client stakeholders and executives</p>
-        <details><summary>Read more</summary><dl>
-          <dt>Problem</dt><dd>Clients lacked actionable insights for strategic decisions.</dd>
-          <dt>Approach</dt><dd>Served as first main tester of the new data warehouse, defined reporting standards and internal SOPs, and shaped dashboards with customers.</dd>
-          <dt>Result</dt><dd>Reporting suites that became central to client stakeholder meetings on ROI and performance.</dd>
-          <dt>Key decision</dt><dd>Set standards and data contracts before expanding dashboards, to prevent metric drift and rebuild trust.</dd>
         </dl></details>
       </article>
 
@@ -628,6 +642,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <h3>Scaling government messaging</h3>
         <p class="hook">End-user messaging, GovDelivery</p>
         <p class="for"><b>Built for:</b> government agencies in the U.S. and U.K.</p>
+        <div class="shots"><figure><a href="work/govdelivery-template-builder.webp" target="_blank" rel="noopener"><img src="work/govdelivery-template-builder.webp" width="1400" height="527" alt="GovDelivery drag-and-drop email template builder" loading="lazy"></a><figcaption>GovDelivery's drag-and-drop template builder. Image: Granicus</figcaption></figure><figure><a href="work/govdelivery-bulletin-editor.webp" target="_blank" rel="noopener"><img src="work/govdelivery-bulletin-editor.webp" width="809" height="718" alt="GovDelivery bulletin editor with a placeholder email" loading="lazy"></a><figcaption>Editing a bulletin before it goes out. Image: Granicus</figcaption></figure></div>
         <details><summary>Read more</summary><dl>
           <dt>Problem</dt><dd>Government clients needed secure, compliant messaging that could scale globally and meet evolving accessibility rules.</dd>
           <dt>Approach</dt><dd>Partnered with engineering on throughput limits, shortcode and longcode management, MFA for U.K. users, and international messaging.</dd>
@@ -637,14 +652,53 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </article>
 
       <article class="card case">
+        <h3>Scheduled email reports</h3>
+        <p class="hook">Prototyping, dashboard analytics</p>
+        <p class="for"><b>Built for:</b> DMO leaders and the stakeholders they report to</p>
+        <div class="shots one"><figure><a href="work/zma-schedule-report.webp" target="_blank" rel="noopener"><img src="work/zma-schedule-report.webp" width="988" height="758" alt="Schedule Report dialog with recipients, format, and recurring delivery options" loading="lazy"></a><figcaption>A scheduling flow I designed: recurring delivery to any inbox. Prototype.</figcaption></figure></div>
+        <details><summary>Read more</summary><dl>
+          <dt>Problem</dt><dd>Stakeholders had to log in to pull campaign results, so reports were often late or never reached the people who fund the campaigns.</dd>
+          <dt>Approach</dt><dd>Designed scheduled delivery of report snapshots by email, so customers could choose who gets which report and how often.</dd>
+          <dt>Status</dt><dd>In prototyping when my role ended.</dd>
+          <dt>Key decision</dt><dd>Bring results to where stakeholders already are, their inbox, instead of asking them to log in.</dd>
+        </dl></details>
+      </article>
+
+      <article class="card case">
         <h3>Staying cloud-ready and certified</h3>
         <p class="hook">Migrations and compliance, Granicus</p>
         <p class="for"><b>Built for:</b> FedRAMP-authorized government clients</p>
+        <div class="shots one"><figure><a href="work/fedramp-vulnerabilities.svg" target="_blank" rel="noopener"><img src="work/fedramp-vulnerabilities.svg" width="1200" height="750" alt="Chart showing open security vulnerabilities falling from about 1,800 to about 200 in three steps, with FedRAMP authorization kept" loading="lazy"></a><figcaption>How we got from ~1,800 open vulnerabilities to ~200. Illustration.</figcaption></figure></div>
         <details><summary>Read more</summary><dl>
           <dt>Problem</dt><dd>An AWS to Google Cloud move, FedRAMP audits, and GDPR and ADA compliance all needed coordination across engineering and compliance.</dd>
           <dt>Approach</dt><dd>Oversaw migrations, prioritized vulnerability triage, and worked cross-functionally to pass audits and keep service running.</dd>
-          <dt>Result</dt><dd>Lower risk exposure, continuous FedRAMP certification, and smoother infrastructure scaling.</dd>
-          <dt>Key decision</dt><dd>Sequence migration and remediation so audits passed with no client impact.</dd>
+          <dt>Result</dt><dd>Cut open security vulnerabilities from ~1,800 to ~200, kept FedRAMP authorization, and moved to Google Cloud with about 15% infrastructure savings.</dd>
+          <dt>Key decision</dt><dd>Fix how we reported vulnerabilities before fixing the vulnerabilities, then sequence the work so each upgrade closed as many issues as possible.</dd>
+        </dl></details>
+      </article>
+
+      <article class="card case">
+        <h3>Defining reporting standards</h3>
+        <p class="hook">Data reporting, Granicus</p>
+        <p class="for"><b>Built for:</b> client stakeholders and executives</p>
+        <div class="shots one"><figure><a href="work/bookdirect-data-engine-report.webp" target="_blank" rel="noopener"><img src="work/bookdirect-data-engine-report.webp" width="580" height="580" alt="Visits by origin market report in Simpleview Data Engine" loading="lazy"></a><figcaption>A report I built, in Simpleview Data Engine. Image: <a href="https://www.simpleviewinc.com/products/data-insights/simpleview-data-engine/" target="_blank" rel="noopener">Simpleview</a></figcaption></figure></div>
+        <details><summary>Read more</summary><dl>
+          <dt>Problem</dt><dd>Clients lacked actionable insights for strategic decisions.</dd>
+          <dt>Approach</dt><dd>Served as first main tester of the new data warehouse, defined reporting standards and internal SOPs, and shaped dashboards with customers.</dd>
+          <dt>Result</dt><dd>Reporting suites that became central to client stakeholder meetings on ROI and performance.</dd>
+          <dt>Key decision</dt><dd>Set standards and data contracts before expanding dashboards, to prevent metric drift and rebuild trust.</dd>
+        </dl></details>
+      </article>
+
+      <article class="card case">
+        <h3>Attribution under state privacy laws</h3>
+        <p class="hook">Discovery work, travel industry</p>
+        <p class="for"><b>Built for:</b> destinations in states with geo-based privacy laws</p>
+        <div class="shots one"><figure><a href="work/privacy-attribution-models.svg" target="_blank" rel="noopener"><img src="work/privacy-attribution-models.svg" width="1200" height="750" alt="Comparison of geo-based attribution, which relies on location data restricted in some states, and spend-based attribution" loading="lazy"></a><figcaption>The standard model next to the one I scoped. Illustration.</figcaption></figure></div>
+        <details><summary>Read more</summary><dl>
+          <dt>Problem</dt><dd>Standard attribution pipelines rely on geolocation, which new state privacy laws restrict for some destinations.</dd>
+          <dt>Approach</dt><dd>Explored replacing geo-based attribution with spend-based attribution for affected destinations, a fundamentally different model.</dd>
+          <dt>Status</dt><dd>Scoped a spend-based model as an alternative for destinations in states with geo-privacy laws. It was in discovery when my role ended.</dd>
         </dl></details>
       </article>
 
@@ -652,6 +706,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <h3>Self-serve event portals</h3>
         <p class="hook">Event micro-sites, Personify</p>
         <p class="for"><b>Built for:</b> trade show and event organizers</p>
+        <div class="shots one"><figure><a href="work/a2z-floor-plan.webp" target="_blank" rel="noopener"><img src="work/a2z-floor-plan.webp" width="508" height="350" alt="Event floor plan editor with booth layout and markings" loading="lazy"></a><figcaption>Exhibitor floor plan in a2z, now Momentive Software. Image: Momentive Software</figcaption></figure></div>
         <details><summary>Read more</summary><dl>
           <dt>Problem</dt><dd>Organizers needed easy portals for vendors and exhibitors.</dd>
           <dt>Approach</dt><dd>Implemented micro-sites where vendors could manage bookings, payments, and profiles on their own.</dd>
@@ -668,18 +723,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div class="wrap two-col">
     <div class="card list-card">
       <h3>Beyond the day job</h3>
-      <div class="item"><span class="yr">2024–now</span><h4>Product and strategy consultant, <a href="https://meetvalence.com/about" target="_blank" rel="noopener" data-print="meetvalence.com">Valence</a></h4><p>Advising on product strategy for all-in-one gym management software built for independent operators, covering billing, scheduling, payroll, POS, and member CRM.</p></div>
-      <div class="item"><span class="yr">2006–now</span><h4>Private swim instructor</h4><p>Self-employed, American Red Cross certified. Teaching swimmers of all ages, focused on safety, stroke technique, and confidence in open water.</p></div>
-      <div class="item"><span class="yr">2025–now</span><h4>Yoga instructor (RYT)</h4><p>Donation-based, trauma-informed classes in vinyasa, yin, and restorative yoga, using invitational cueing, somatic awareness, and myofascial release to support nervous system regulation.</p></div>
-      <div class="item"><span class="yr">2024–2025</span><h4>Community creative director, Beech Kombucha Brewery</h4><p>Shaped brand identity, event programming, and merchandise, and supported website improvements and subscription planning.</p></div>
+      <div class="item has-logo"><img class="logo" src="logos/valence.png" alt="" loading="lazy" onerror="this.remove()"><span class="yr">2024–now</span><h4>Product and strategy consultant, <a href="https://meetvalence.com/about" target="_blank" rel="noopener" data-print="meetvalence.com">Valence</a></h4><p>Advising on product strategy for all-in-one gym management software built for independent operators, covering billing, scheduling, payroll, POS, and member CRM.</p></div>
+      <div class="item has-logo"><img class="logo" src="logos/swim.svg" alt="" loading="lazy" onerror="this.remove()"><span class="yr">2006–now</span><h4>Private swim instructor</h4><p>Self-employed, American Red Cross certified. Teaching swimmers of all ages, focused on safety, stroke technique, and confidence in open water.</p></div>
+      <div class="item has-logo"><img class="logo" src="logos/ryt-200.png" alt="" loading="lazy" onerror="this.remove()"><span class="yr">2025–now</span><h4>Yoga instructor (RYT)</h4><p>Donation-based, trauma-informed classes in vinyasa, yin, and restorative yoga, using invitational cueing, somatic awareness, and myofascial release to support nervous system regulation.</p></div>
+      <div class="item has-logo"><img class="logo" src="logos/beech-kombucha.png" alt="" loading="lazy" onerror="this.remove()"><span class="yr">2024–2025</span><h4>Community creative director, Beech Kombucha Brewery</h4><p>Shaped brand identity, event programming, and merchandise, and supported website improvements and subscription planning.</p></div>
     </div>
     <div class="card list-card">
       <h3>Education and certifications</h3>
-      <div class="item"><span class="yr">2012–2016</span><h4>B.A. Psychology, Loyola University Maryland</h4><p>Human behavior, decision-making, and motivation: the root of how I approach users.</p></div>
-      <div class="item"><span class="yr">2023</span><h4>Product Strategy, Kellogg Executive Education</h4><p>Product vision, competitive positioning, market segmentation, and growth strategy.</p></div>
-      <div class="item"><span class="yr">2023</span><h4>Product Analytics, Pendo</h4><p>Experiment design, feature adoption metrics, and KPI creation.</p></div>
-      <div class="item"><span class="yr">2022</span><h4>Advanced Certified Scrum Product Owner and CSPO, Scrum Alliance</h4><p>Scaled Agile delivery, backlog ownership, and metrics-driven prioritization.</p></div>
-      <div class="item"><span class="yr">2021</span><h4>CMS Certified Mentor, Simpleview</h4><p>Trained and mentored new hires on the CMS used by destinations worldwide.</p></div>
+      <div class="item has-logo"><img class="logo" src="logos/loyola.png" alt="" loading="lazy" onerror="this.remove()"><span class="yr">2012–2016</span><h4>B.A. Psychology, Loyola University Maryland</h4><p>Human behavior, decision-making, and motivation: the root of how I approach users.</p></div>
+      <div class="item has-logo"><img class="logo" src="logos/kellogg.png" alt="" loading="lazy" onerror="this.remove()"><span class="yr">2023</span><h4>Product Strategy, Kellogg Executive Education</h4><p>Product vision, competitive positioning, market segmentation, and growth strategy.</p></div>
+      <div class="item has-logo"><img class="logo" src="logos/pendo.png" alt="" loading="lazy" onerror="this.remove()"><span class="yr">2023</span><h4>Product Analytics, Pendo</h4><p>Experiment design, feature adoption metrics, and KPI creation.</p></div>
+      <div class="item has-logo"><img class="logo" src="logos/scrum-acspo.png" alt="" loading="lazy" onerror="this.remove()"><span class="yr">2022</span><h4>Advanced Certified Scrum Product Owner and CSPO, Scrum Alliance</h4><p>Scaled Agile delivery, backlog ownership, and metrics-driven prioritization.</p></div>
+      <div class="item has-logo"><img class="logo" src="logos/granicus.png" alt="" loading="lazy" onerror="this.remove()"><span class="yr">2021</span><h4>CMS Certified Mentor, Simpleview</h4><p>Trained and mentored new hires on the CMS used by destinations worldwide.</p></div>
     </div>
   </div>
 </section>
