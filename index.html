@@ -226,6 +226,16 @@ section.block{padding:72px 0}
 }
 .todo{background:repeating-linear-gradient(45deg,transparent 0 8px,rgba(0,0,0,.035) 8px 16px);outline:2px dashed var(--pop);outline-offset:2px;border-radius:6px;padding:0 4px}
 
+/* Proudest work */
+.wins{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.win{display:flex;flex-direction:column}
+.win-stat{font-family:var(--display);font-weight:var(--dweight);font-style:var(--dstyle);font-size:2.6rem;line-height:1;color:var(--accent);margin:0}
+.win-unit{font-weight:700;margin:6px 0 16px}
+.win h3{font-size:1.3rem;margin-bottom:4px}
+.win-ctx{color:var(--muted);font-size:.92rem;margin:0 0 12px}
+.win-body{margin:0 0 16px}
+.win-link{margin-top:auto;font-weight:700;color:var(--accent)}
+
 /* Case studies */
 .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .case.featured{grid-column:1/-1;border-width:2px;border-style:dashed;border-color:var(--pop)}
@@ -286,7 +296,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .photo-wrap{max-width:320px}
   .proof-row{grid-template-columns:repeat(2,1fr)}
   .lead-grid,.skills,.quotes{grid-template-columns:1fr}
-  .cases{grid-template-columns:1fr}
+  .cases,.wins{grid-template-columns:1fr}
 }
 @media (max-width:640px){
   .vt-name{display:none}
@@ -362,6 +372,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <a class="brand" href="#top">🌹 Rose Puglisi</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Sections">
+      <a href="#proudest">Highlights</a>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#work">Case studies</a>
@@ -423,6 +434,39 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
+<!-- PROUDEST WORK -->
+<section class="block tint" id="proudest">
+  <div class="wrap">
+    <div class="sec-head"><h2>Work I'm proudest of</h2><p>Three different industries, one playbook: plan hard, bring people along, and measure what changed.</p></div>
+    <div class="wins">
+      <article class="card win">
+        <p class="win-stat">10</p>
+        <p class="win-unit">launches in six months</p>
+        <h3>Shipping fast because the planning came first</h3>
+        <p class="win-ctx">Tourism data, Zartico</p>
+        <p class="win-body">With a strong engineering team, I shipped more in six months than in any comparable stretch of my career, because the planning was done before the building started. We launched an international attribution pipeline and a state variant for DMOs, rolled out a more accurate domestic pipeline, redesigned Campaign Hub, built Zartico's first front-end analytics dashboard, added roles and permissions that cut support questions to nearly zero, shipped AI-written dashboard help and wrap reports, added scheduled report delivery, and captured media spend so customers could see ROI and CPA.</p>
+        <a class="win-link" href="https://www.zartico.com/media-attribution" target="_blank" rel="noopener">See the product &#8599;</a>
+      </article>
+      <article class="card win">
+        <p class="win-stat">~90%</p>
+        <p class="win-unit">fewer open security vulnerabilities</p>
+        <h3>Turning a FedRAMP risk into a model for other teams</h3>
+        <p class="win-ctx">Government SaaS, Granicus</p>
+        <p class="win-body">GovDelivery's FedRAMP authorization, a key reason its 1,000+ government clients chose it, was at risk because of a backlog of ~1,800 open security vulnerabilities. Others had tried to clear it. I stepped back and fixed how we reported first: duplicate alerts were making overdue items look twice as bad. Then I mapped which fixes were blocked by which upgrades and which ones would close many others, and divided the work across teams. We got to ~200, well within normal remediation timelines, and leadership asked me to present the approach and mentor other teams facing the same problem.</p>
+      </article>
+      <article class="card win">
+        <p class="win-stat">$85K+</p>
+        <p class="win-unit">in partner bookings in ~3.5 months</p>
+        <h3>Making a destination website bookable</h3>
+        <p class="win-ctx">Destination tech, Simpleview</p>
+        <p class="win-body">Our New Orleans beta partner wanted tours and attractions bookable on its own site. We built the Viator integration right into their existing design, and bookings started on day one: 700+ by year end and $85K+ in net revenue for local partners, on pace for $300K a year. Listings with an integration got 5x more engagement.</p>
+        <a class="win-link" href="https://www.simpleviewinc.com/blog/stories/post/new-orleans-company-on-pace-to-provide-partners-with-300k-in-annual-revenue/" target="_blank" rel="noopener">Read the story &#8599;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
 <!-- ABOUT -->
 <section class="block" id="about">
   <div class="wrap about-grid">
@@ -450,6 +494,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <div class="card"><h3>Prove it with data</h3><p>From attribution to reporting standards, I build the measurement that lets customers and executives see what's working and fund what's next.</p></div>
       <div class="card"><h3>Ship with discipline</h3><p>I formalized planning practices and SOPs at Granicus that cut planning errors and delivery mismatches by about 30% across two program increments. I judge a launch by whether customers adopt it, not by whether it shipped on time.</p></div>
       <div class="card"><h3>Make strategy repeatable</h3><p>Strategy only works if people can repeat it. I turn roadmaps, data, and launches into a clear narrative of what's changing, why it matters, and what happens next, so executives fund it, sales can sell it, and customers adopt it.</p></div>
+    </div>
   </div>
 </section>
 
@@ -595,7 +640,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <details><summary>Read more</summary><dl>
           <dt>Problem</dt><dd>The legacy hotel referral platform was broken, with major client churn risk, no documentation, and no remaining experts after engineering turnover.</dd>
           <dt>Approach</dt><dd>Relearned the product from the code up alongside a one-person engineering team, then owned the full roadmap and redefined integrations with hotel APIs.</dd>
-          <dt>Result</dt><dd>Stabilized retention risk, unlocked live pricing connections, and moved the product from maintenance mode to growth. Repackaging it as an add-on brought in more purchases and users.</dd>
+          <dt>Result</dt><dd>Stabilized retention risk, unlocked live pricing connections, and moved the product from maintenance mode to growth. Repackaging it as an add-on brought in more purchases and users, and customers like Discover Dunwoody reported <a href="https://www.simpleviewinc.com/blog/stories/post/the-power-behind-bookings-discover-dunwoody-scored-over-832k-in-hotel-revenue-using-book-direct/" target="_blank" rel="noopener">$832K+ in hotel revenue through Book &#8250; Direct</a>.</dd>
           <dt>Key decision</dt><dd>Sunset the legacy referral logic and rebuild around live rates APIs to reduce churn and enable long-term growth.</dd>
         </dl></details>
       </article>
@@ -643,8 +688,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <details><summary>Read more</summary><dl>
           <dt>Problem</dt><dd>An AWS to Google Cloud move, FedRAMP audits, and GDPR and ADA compliance all needed coordination across engineering and compliance.</dd>
           <dt>Approach</dt><dd>Oversaw migrations, prioritized vulnerability triage, and worked cross-functionally to pass audits and keep service running.</dd>
-          <dt>Result</dt><dd>Lower risk exposure, continuous FedRAMP certification, and smoother infrastructure scaling.</dd>
-          <dt>Key decision</dt><dd>Sequence migration and remediation so audits passed with no client impact.</dd>
+          <dt>Result</dt><dd>Cut open security vulnerabilities from ~1,800 to ~200, kept FedRAMP authorization, and moved to Google Cloud with about 15% infrastructure savings.</dd>
+          <dt>Key decision</dt><dd>Fix how we reported vulnerabilities before fixing the vulnerabilities, then sequence the work so each upgrade closed as many issues as possible.</dd>
         </dl></details>
       </article>
 
