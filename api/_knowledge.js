@@ -67,6 +67,7 @@ EDUCATION AND CERTIFICATIONS
 
 WHAT SHE'S LOOKING FOR
 - Senior or director-level product roles, in any industry doing ethical work.
+- Loves general product platform work, especially discovering usage trends in the data and turning them into roadmap decisions.
 - Has worked remotely for years; open to hybrid for the right role.
 - Contact: maryrose.puglisi@gmail.com or LinkedIn.
 
