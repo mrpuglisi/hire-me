@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" width="1600" height="500" role="img" aria-labelledby="t d">
-  <title id="t">Project details available on request</title>
-  <desc id="d">A blurred, generic dashboard outline behind a card with a lock icon that reads: Project details available on request. Contact me to learn more.</desc>
+  <title id="t">Proprietary product. Contact me for project details.</title>
+  <desc id="d">A blurred, generic dashboard outline behind a card with a lock icon that reads: Proprietary product. Contact me for project details.</desc>
   <defs>
     <filter id="blur" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="7"/></filter>
   </defs>
@@ -31,7 +31,7 @@
       <rect x="-15" y="-4" width="30" height="24" rx="5" fill="#1B2A4A"/>
       <path d="M-9 -4 V-12 a9 9 0 0 1 18 0 V-4" fill="none" stroke="#1B2A4A" stroke-width="5"/>
     </g>
-    <text x="800" y="275" font-size="34" font-weight="800" fill="#1F2937">Project details on request</text>
-    <text x="800" y="320" font-size="26" fill="#2A7F75" font-weight="600">Contact me to learn more</text>
+    <text x="800" y="275" font-size="34" font-weight="800" fill="#1F2937">Proprietary product</text>
+    <text x="800" y="320" font-size="26" fill="#2A7F75" font-weight="600">Contact me for project details</text>
   </g>
 </svg>
