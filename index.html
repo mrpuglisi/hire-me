@@ -227,6 +227,12 @@ section.block{padding:72px 0}
 .todo{background:repeating-linear-gradient(45deg,transparent 0 8px,rgba(0,0,0,.035) 8px 16px);outline:2px dashed var(--pop);outline-offset:2px;border-radius:6px;padding:0 4px}
 
 /* Case studies */
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:4px 0 16px}
+.case.featured .shots{grid-template-columns:repeat(3,1fr)}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:var(--r-sm)}
+.shots figcaption{font-size:.82rem;line-height:1.35;color:var(--muted);margin-top:6px}
+.shots figcaption a{color:var(--accent)}
 .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .case.featured{grid-column:1/-1;border-width:2px;border-style:dashed;border-color:var(--pop)}
 .case h3{font-size:1.4rem}
@@ -287,6 +293,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .proof-row{grid-template-columns:repeat(2,1fr)}
   .lead-grid,.skills,.quotes{grid-template-columns:1fr}
   .cases{grid-template-columns:1fr}
+  .case.featured .shots{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:640px){
   .vt-name{display:none}
@@ -297,6 +304,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .sticker{left:-8px}
   section.block{padding:56px 0}
 }
+@media (max-width:640px){.shots,.case.featured .shots{grid-template-columns:1fr}}
+@media print{.shots{display:none}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
@@ -450,6 +459,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <div class="card"><h3>Prove it with data</h3><p>From attribution to reporting standards, I build the measurement that lets customers and executives see what's working and fund what's next.</p></div>
       <div class="card"><h3>Ship with discipline</h3><p>I formalized planning practices and SOPs at Granicus that cut planning errors and delivery mismatches by about 30% across two program increments. I judge a launch by whether customers adopt it, not by whether it shipped on time.</p></div>
       <div class="card"><h3>Make strategy repeatable</h3><p>Strategy only works if people can repeat it. I turn roadmaps, data, and launches into a clear narrative of what's changing, why it matters, and what happens next, so executives fund it, sales can sell it, and customers adopt it.</p></div>
+    </div>
   </div>
 </section>
 
@@ -566,6 +576,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <h3>Launching new media attribution pipelines</h3>
         <p class="hook">Zartico Media Attribution (ZMA) and Campaign Hub</p>
         <p class="for"><b>Built for:</b> DMOs, state tourism offices, CVBs, and their marketing agencies</p>
+        <div class="shots"><figure><a href="work/zma-international.webp" target="_blank" rel="noopener"><img src="work/zma-international.webp" width="500" height="520" alt="International media attribution report showing exposed visitors and visits by origin country" loading="lazy"></a><figcaption>International attribution, the pipeline I launched. Image: <a href="https://www.zartico.com/media-attribution" target="_blank" rel="noopener">Zartico</a></figcaption></figure><figure><a href="work/zma-dashboard.webp" target="_blank" rel="noopener"><img src="work/zma-dashboard.webp" width="670" height="400" alt="Media attribution dashboard with ad-exposed visitors, conversion rate, and vendor performance" loading="lazy"></a><figcaption>Campaign performance by vendor. Image: Zartico</figcaption></figure><figure><a href="work/zma-visitor-behavior.webp" target="_blank" rel="noopener"><img src="work/zma-visitor-behavior.webp" width="1400" height="642" alt="Comparison of ad-exposed and non-exposed visitor behavior by category and region" loading="lazy"></a><figcaption>How ads change what visitors do and where they go. Image: Zartico</figcaption></figure></div>
         <details open>
           <summary>Read more</summary>
           <dl>
@@ -592,10 +603,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <h3>Modernizing a booking platform</h3>
         <p class="hook">Book › Direct, Granicus</p>
         <p class="for"><b>Built for:</b> DMOs and their hotel and vacation rental partners</p>
+        <div class="shots"><figure><a href="work/bookdirect-widget-poconos.webp" target="_blank" rel="noopener"><img src="work/bookdirect-widget-poconos.webp" width="1400" height="355" alt="Book Direct lodging search widget with hotel and vacation rental tabs and date pickers" loading="lazy"></a><figcaption>Search widget, live on <a href="https://www.poconomountains.com/places-to-stay/" target="_blank" rel="noopener">Visit Pocono Mountains</a></figcaption></figure><figure><a href="work/bookdirect-listings-greenville.webp" target="_blank" rel="noopener"><img src="work/bookdirect-listings-greenville.webp" width="1400" height="722" alt="Hotel listings showing live rates, Book Now buttons, and a bookable-only filter" loading="lazy"></a><figcaption>Live rates and a bookable-only filter on <a href="https://www.visitgreenvillesc.com/places-to-stay/" target="_blank" rel="noopener">Visit Greenville SC</a></figcaption></figure><figure><a href="work/bookdirect-widget-greenville.webp" target="_blank" rel="noopener"><img src="work/bookdirect-widget-greenville.webp" width="1400" height="595" alt="Book Your Hotel widget styled in a destination's brand colors" loading="lazy"></a><figcaption>The widget takes on each destination's brand</figcaption></figure><figure><a href="work/bookdirect-data-engine-report.webp" target="_blank" rel="noopener"><img src="work/bookdirect-data-engine-report.webp" width="580" height="580" alt="Visits by origin market report in Simpleview Data Engine" loading="lazy"></a><figcaption>A report I built, in Simpleview Data Engine. Image: <a href="https://www.simpleviewinc.com/products/data-insights/simpleview-data-engine/" target="_blank" rel="noopener">Simpleview</a></figcaption></figure></div>
         <details><summary>Read more</summary><dl>
           <dt>Problem</dt><dd>The legacy hotel referral platform was broken, with major client churn risk, no documentation, and no remaining experts after engineering turnover.</dd>
-          <dt>Approach</dt><dd>Relearned the product from the code up alongside a one-person engineering team, then owned the full roadmap and redefined integrations with hotel APIs.</dd>
-          <dt>Result</dt><dd>Stabilized retention risk, unlocked live pricing connections, and moved the product from maintenance mode to growth. Repackaging it as an add-on brought in more purchases and users.</dd>
+          <dt>Approach</dt><dd>Relearned the product from the code up alongside a one-person engineering team, then owned the full roadmap and redefined integrations with hotel APIs. Partnered with our designer on the widget and listing experience, ran internal campaigns to find the best placements to recommend to customers, and built the product's reports on Simpleview's data warehouse, with my customers as the Data Engine's beta users.</dd>
+          <dt>Result</dt><dd>Stabilized retention risk, unlocked live pricing connections, and moved the product from maintenance mode to growth. Repackaging it as an add-on brought in more purchases and users, and customers like Discover Dunwoody reported <a href="https://www.simpleviewinc.com/blog/stories/post/the-power-behind-bookings-discover-dunwoody-scored-over-832k-in-hotel-revenue-using-book-direct/" target="_blank" rel="noopener">$832K+ in hotel revenue through Book &#8250; Direct</a>.</dd>
           <dt>Key decision</dt><dd>Sunset the legacy referral logic and rebuild around live rates APIs to reduce churn and enable long-term growth.</dd>
         </dl></details>
       </article>
@@ -643,8 +655,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <details><summary>Read more</summary><dl>
           <dt>Problem</dt><dd>An AWS to Google Cloud move, FedRAMP audits, and GDPR and ADA compliance all needed coordination across engineering and compliance.</dd>
           <dt>Approach</dt><dd>Oversaw migrations, prioritized vulnerability triage, and worked cross-functionally to pass audits and keep service running.</dd>
-          <dt>Result</dt><dd>Lower risk exposure, continuous FedRAMP certification, and smoother infrastructure scaling.</dd>
-          <dt>Key decision</dt><dd>Sequence migration and remediation so audits passed with no client impact.</dd>
+          <dt>Result</dt><dd>Cut open security vulnerabilities from ~1,800 to ~200, kept FedRAMP authorization, and moved to Google Cloud with about 15% infrastructure savings.</dd>
+          <dt>Key decision</dt><dd>Fix how we reported vulnerabilities before fixing the vulnerabilities, then sequence the work so each upgrade closed as many issues as possible.</dd>
         </dl></details>
       </article>
 
