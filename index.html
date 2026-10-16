@@ -230,6 +230,8 @@ section.block{padding:72px 0}
 .shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:4px 0 16px}
 .case.featured .shots{grid-template-columns:repeat(3,1fr)}
 .shots.one{grid-template-columns:1fr}
+.shots.one img{aspect-ratio:32/10}
+@media (max-width:640px){.shots.one img{aspect-ratio:16/10}}
 .case.wide{grid-column:1/-1}
 .shots figure{margin:0}
 .shots img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:var(--r-sm)}
