@@ -5,7 +5,7 @@
   var EMAIL = 'maryrose.puglisi@gmail.com';
   var STARTERS = [
     { q: 'What AI has Rose shipped?',
-      a: "At Zartico, Rose shipped AI into the customer product. The analytics dashboard used layered help: curated explanations of each metric first, then AI-written answers to follow-up questions. Every campaign's wrap report, about 100 a year, combines AI-written analysis with tested, rule-based wording where consistency matters. She also prototyped a Claude-powered upgrade to a paid knowledge-base assistant. Day to day, she runs Claude connected to Jira, Slack, Drive, and the codebase for specs, code audits, and leadership briefs." },
+      a: "At Zartico, Rose shipped AI into the customer product. The analytics dashboard used layered help: curated explanations of each metric first, then AI-written answers to follow-up questions. Every campaign's wrap report combines AI-written analysis with tested, rule-based wording where consistency matters. She also prototyped a Claude-powered upgrade to a paid knowledge-base assistant. Day to day, she runs Claude connected to Jira, Slack, Drive, and the codebase for specs, code audits, and leadership briefs." },
     { q: 'What kind of role is she looking for?',
       a: "A senior or director-level product role, in any industry doing ethical work. She loves platform product work, especially digging into usage data to find the trends that shape a roadmap. She's strongest in data and analytics products, B2B SaaS, and taking new products from zero to market. She's based in St. Petersburg, Florida, has worked remotely for years, and is open to hybrid for the right role." },
     { q: 'How does she lead teams?',
