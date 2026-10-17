@@ -109,7 +109,7 @@ module.exports = async function handler(req, res) {
         "x-api-key": process.env.ANTHROPIC_API_KEY.trim(),
         "anthropic-version": "2023-06-01",
       },
-      body: JSON.stringify({ model: MODEL, max_tokens: MAX_TOKENS, temperature: 0, system: SYSTEM_PROMPT, messages }),
+      body: JSON.stringify({ model: MODEL, max_tokens: MAX_TOKENS, system: SYSTEM_PROMPT, messages }),
     });
     if (!r.ok) {
       const body = await r.text().catch(() => "");
