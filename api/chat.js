@@ -1,7 +1,8 @@
 // Vercel serverless function: POST /api/chat
 // Free-typed questions only. Starter questions are answered in the browser with Rose's approved text.
 // Needs ANTHROPIC_API_KEY in Vercel > Project > Settings > Environment Variables.
-// Conversations are not stored or logged.
+// Optional anonymous logging: set LOG_WEBHOOK_URL in Vercel (for example, a Formspree form endpoint).
+// Only the question, the answer, and whether it was answered are sent. No IP address or visitor details.
 
 const KNOWLEDGE = require("./_knowledge.js");
 
@@ -61,6 +62,22 @@ function cleanMessages(raw) {
   return msgs;
 }
 
+async function logQuestion(question, answer, askRose) {
+  const url = process.env.LOG_WEBHOOK_URL;
+  if (!url) return;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 2000);
+    await fetch(url, {
+      method: "POST",
+      headers: { "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify({ question, answer, answered: askRose ? "no, sent to Rose" : "yes", _subject: "Portfolio assistant question" }),
+      signal: ctrl.signal,
+    });
+    clearTimeout(timer);
+  } catch (e) { /* logging must never break the chat */ }
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -90,7 +107,9 @@ module.exports = async function handler(req, res) {
     let text = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("").replace(/\s*—\s*/g, ", ").trim();
     const askRose = !text || text.includes("[[ASK_ROSE]]");
     text = text.replace(/\[\[ASK_ROSE\]\]\s*/g, "").trim();
-    return res.status(200).json({ reply: text || "That's one Rose can answer better than I can.", askRose });
+    const reply = text || "That's one Rose can answer better than I can.";
+    await logQuestion(messages[messages.length - 1].content, reply, askRose);
+    return res.status(200).json({ reply, askRose });
   } catch (e) {
     return res.status(502).json({ error: "Something went wrong on my end. Email Rose at maryrose.puglisi@gmail.com." });
   }

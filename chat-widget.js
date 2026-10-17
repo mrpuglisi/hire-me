@@ -23,7 +23,7 @@
       a: "Rose designed and built this site herself with Claude, drawing on a self-taught coding background. I'm part of it too: the questions you can tap have answers she wrote, and anything you type goes to Claude, which only knows what she's approved. It's the same layered design she shipped at Zartico.",
       next: 'What else has she built with AI?' }
   ];
-  var HOW = "The questions you can tap show answers Rose wrote herself, so they're accurate every time. Anything you type goes to Claude, which can only answer from a file of facts Rose reviewed line by line. If it doesn't know, it says so and points you to her email. It's the same layered design she shipped at Zartico. Nothing you type is stored.";
+  var HOW = "The questions you can tap show answers Rose wrote herself, so they're accurate every time. Anything you type goes to Claude, which can only answer from a file of facts Rose reviewed line by line. If it doesn't know, it says so and points you to her email. It's the same layered design she shipped at Zartico. Typed questions are saved anonymously, with no information about you, so Rose can see what people ask and improve the answers.";
 
   var css = [
     '.aw-launch{position:fixed;right:20px;bottom:20px;z-index:60;display:inline-flex;align-items:center;gap:10px;padding:6px 18px 6px 6px;border-radius:999px;border:0;cursor:pointer;background:var(--accent);color:var(--on-accent,#fff);font:inherit;font-weight:700;font-size:.95rem;box-shadow:0 10px 28px rgba(0,0,0,.18);transition:transform .15s}',
@@ -148,7 +148,11 @@
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (x) {
         var text = x.ok ? x.j.reply : (x.j.error || "Hmm, something went sideways on my end. Rose is at " + EMAIL + '.');
-        t.textContent = text; if (x.ok) { history.push({ role: 'assistant', content: text }); if (x.j.askRose) cta(true, q); else afterAnswer(); }
+        t.textContent = text;
+        if (x.ok) {
+          if (!x.j.askRose) { var n = document.createElement('span'); n.className = 'aw-tag'; n.textContent = "AI answer from Rose's approved facts. Worth confirming details with her."; t.appendChild(n); }
+          history.push({ role: 'assistant', content: text }); if (x.j.askRose) cta(true, q); else afterAnswer();
+        }
       })
       .catch(function () { t.textContent = "Hmm, I couldn't connect just now. Rose is at " + EMAIL + '.'; })
       .then(function () { busy = false; send.disabled = false; renderChips(); input.focus(); scroll(); });
