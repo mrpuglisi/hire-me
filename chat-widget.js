@@ -4,6 +4,8 @@
 (function () {
   var EMAIL = 'maryrose.puglisi@gmail.com';
   var AVATAR = 'work/rose-avatar.jpg';
+  var LINKEDIN = 'https://www.linkedin.com/in/maryrose-puglisi/';
+  var BOOKING = ''; // add a scheduling link (Calendly, Cal.com) to show a "Book a call" button
   var STARTERS = [
     { q: 'What AI has she shipped?',
       a: "Quite a bit. At Zartico, Rose shipped AI right into the product: dashboard help that starts with curated explanations and lets AI handle the follow-up questions, plus campaign wrap reports that mix AI-written analysis with tested wording where consistency matters. Day to day, she works with Claude plugged into Jira, Slack, Drive, and the codebase.",
@@ -56,6 +58,11 @@
     '.aw-foot{display:flex;justify-content:flex-end;padding:0 18px 10px}',
     '.aw-foot button{border:0;background:transparent;color:var(--muted,#555);font:inherit;font-size:.78rem;cursor:pointer;padding:0;text-decoration:underline}',
     '.aw-how{align-self:stretch;margin:0;padding:10px 12px;border-radius:12px;border:1px dashed var(--line,#ccc);font-size:.82rem;line-height:1.45;color:var(--muted,#555)}',
+    '.aw-cta{align-self:stretch;padding:12px 14px;border-radius:16px;border:1px solid var(--accent);background:var(--surface,#fff)}',
+    '.aw-cta p{margin:0 0 10px;font-size:.9rem;font-weight:600}',
+    '.aw-cta div{display:flex;flex-wrap:wrap;gap:8px}',
+    '.aw-cta a{display:inline-block;padding:7px 14px;border-radius:999px;font-size:.85rem;font-weight:700;text-decoration:none;border:1px solid var(--accent);color:var(--ink,#111)}',
+    '.aw-cta a.primary{background:var(--accent);color:var(--on-accent,#fff)}',
     '.aw-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}',
     '.to-top{bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}',
     '@media (max-width:640px){.aw-launch{right:14px;bottom:14px}.aw-panel{right:8px;left:8px;width:auto;bottom:74px;max-height:calc(100vh - 92px)}}',
@@ -87,7 +94,18 @@
   var log = panel.querySelector('.aw-log'), chips = panel.querySelector('.aw-chips');
   var form = panel.querySelector('.aw-form'), input = panel.querySelector('#aw-input'), send = form.querySelector('button');
   var howBtn = panel.querySelector('.aw-how-btn'), howBox = null;
-  var history = [], busy = false, used = {};
+  var history = [], busy = false, used = {}, answered = 0, ctaShown = false;
+  function cta() {
+    if (ctaShown) return; ctaShown = true;
+    var c = document.createElement('div'); c.className = 'aw-cta';
+    var subject = encodeURIComponent('Saw your portfolio, would love to talk');
+    var links = (BOOKING ? '<a class="primary" href="' + BOOKING + '" target="_blank" rel="noopener">Book a call</a>' : '') +
+      '<a class="' + (BOOKING ? '' : 'primary') + '" href="mailto:' + EMAIL + '?subject=' + subject + '">Email Rose</a>' +
+      '<a href="' + LINKEDIN + '" target="_blank" rel="noopener">LinkedIn</a>';
+    c.innerHTML = "<p>Like what you're hearing? Rose would love to talk.</p><div>" + links + '</div>';
+    log.insertBefore(c, chips); scroll();
+  }
+  function afterAnswer() { answered++; if (answered === 2) cta(); }
 
   function scroll() { log.scrollTop = log.scrollHeight; }
   function add(role, text, tag) {
@@ -118,7 +136,7 @@
     setTimeout(function () {
       t.textContent = s.a; var tag = document.createElement('span'); tag.className = 'aw-tag'; tag.textContent = "In Rose's own words"; t.appendChild(tag);
       history.push({ role: 'user', content: s.q }, { role: 'assistant', content: s.a });
-      busy = false; renderChips(s.next); scroll();
+      busy = false; afterAnswer(); renderChips(s.next); scroll();
     }, 650);
   }
   function ask(q) {
@@ -129,7 +147,7 @@
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (x) {
         var text = x.ok ? x.j.reply : (x.j.error || "Hmm, something went sideways on my end. Rose is at " + EMAIL + '.');
-        t.textContent = text; if (x.ok) history.push({ role: 'assistant', content: text });
+        t.textContent = text; if (x.ok) { history.push({ role: 'assistant', content: text }); afterAnswer(); }
       })
       .catch(function () { t.textContent = "Hmm, I couldn't connect just now. Rose is at " + EMAIL + '.'; })
       .then(function () { busy = false; send.disabled = false; renderChips(); input.focus(); scroll(); });
