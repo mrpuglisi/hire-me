@@ -20,7 +20,7 @@
       a: "Yes. At Granicus she owned compliance for GovDelivery, a government messaging platform used by 1,000+ government clients, covering FedRAMP, GDPR, and WCAG. When its FedRAMP authorization was at risk, she took open security vulnerabilities from about 1,800 to about 200, then mentored other teams on how she did it.",
       next: 'How did she get from 1,800 to 200?' },
     { q: "How'd she build this?",
-      a: "Rose designed and built this site herself with Claude, without a professional coding background. I'm part of it too: the questions you can tap have answers she wrote, and anything you type goes to Claude, which only knows what she's approved. It's the same layered design she shipped at Zartico.",
+      a: "Rose designed and built this site herself with Claude, drawing on a self-taught coding background. I'm part of it too: the questions you can tap have answers she wrote, and anything you type goes to Claude, which only knows what she's approved. It's the same layered design she shipped at Zartico.",
       next: 'What else has she built with AI?' }
   ];
   var HOW = "The questions you can tap show answers Rose wrote herself, so they're accurate every time. Anything you type goes to Claude, which can only answer from a file of facts Rose reviewed line by line. If it doesn't know, it says so and points you to her email. It's the same layered design she shipped at Zartico. Nothing you type is stored.";

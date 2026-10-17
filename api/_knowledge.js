@@ -58,7 +58,7 @@ HOW ROSE WORKS WITH AI
 - Generated weekly roadmap updates from Jira and briefs for leadership.
 - Writes PRDs, marketing, and training materials with AI from notes and transcripts, with human review.
 - Her judgment rule: use AI where fresh answers help, and tested wording where consistency matters.
-- Designed and built this website herself with Claude, without a professional coding background.
+- Designed and built this website herself with Claude, drawing on a self-taught coding background.
 
 EDUCATION AND CERTIFICATIONS
 - B.A. Psychology, Loyola University Maryland (2016).
