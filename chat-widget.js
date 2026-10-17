@@ -95,14 +95,15 @@
   var form = panel.querySelector('.aw-form'), input = panel.querySelector('#aw-input'), send = form.querySelector('button');
   var howBtn = panel.querySelector('.aw-how-btn'), howBox = null;
   var history = [], busy = false, used = {}, answered = 0, ctaShown = false;
-  function cta() {
+  function cta(askRose, q) {
     if (ctaShown) return; ctaShown = true;
     var c = document.createElement('div'); c.className = 'aw-cta';
-    var subject = encodeURIComponent('Saw your portfolio, would love to talk');
+    var subject = encodeURIComponent(askRose ? 'A question from your portfolio' : 'Saw your portfolio, would love to talk');
+    var body = askRose && q ? '&body=' + encodeURIComponent('Hi Rose,\n\nI asked your portfolio assistant: "' + q + '"\n\n') : '';
     var links = (BOOKING ? '<a class="primary" href="' + BOOKING + '" target="_blank" rel="noopener">Book a call</a>' : '') +
-      '<a class="' + (BOOKING ? '' : 'primary') + '" href="mailto:' + EMAIL + '?subject=' + subject + '">Email Rose</a>' +
+      '<a class="' + (BOOKING ? '' : 'primary') + '" href="mailto:' + EMAIL + '?subject=' + subject + body + '">Email Rose</a>' +
       '<a href="' + LINKEDIN + '" target="_blank" rel="noopener">LinkedIn</a>';
-    c.innerHTML = "<p>Like what you're hearing? Rose would love to talk.</p><div>" + links + '</div>';
+    c.innerHTML = '<p>' + (askRose ? "That's a great one to ask Rose directly." : "Like what you're hearing? Rose would love to talk.") + '</p><div>' + links + '</div>';
     log.insertBefore(c, chips); scroll();
   }
   function afterAnswer() { answered++; if (answered === 2) cta(); }
@@ -147,7 +148,7 @@
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (x) {
         var text = x.ok ? x.j.reply : (x.j.error || "Hmm, something went sideways on my end. Rose is at " + EMAIL + '.');
-        t.textContent = text; if (x.ok) { history.push({ role: 'assistant', content: text }); afterAnswer(); }
+        t.textContent = text; if (x.ok) { history.push({ role: 'assistant', content: text }); if (x.j.askRose) cta(true, q); else afterAnswer(); }
       })
       .catch(function () { t.textContent = "Hmm, I couldn't connect just now. Rose is at " + EMAIL + '.'; })
       .then(function () { busy = false; send.disabled = false; renderChips(); input.focus(); scroll(); });
