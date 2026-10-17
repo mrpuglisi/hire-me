@@ -1,0 +1,8 @@
+# Secrets stay out of the repo. The API key lives only in Vercel > Settings > Environment Variables.
+.env
+.env.*
+*.pem
+*.key
+.vercel
+.DS_Store
+node_modules/
