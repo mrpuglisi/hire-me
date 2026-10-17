@@ -20,10 +20,10 @@
       a: "Yes. At Granicus she owned compliance for GovDelivery, a government messaging platform used by 1,000+ government clients, covering FedRAMP, GDPR, and WCAG. When its FedRAMP authorization was at risk, she took open security vulnerabilities from about 1,800 to about 200, then mentored other teams on how she did it.",
       next: 'How did she get from 1,800 to 200?' },
     { q: "How'd she build this?",
-      a: "Rose designed and built this site herself with Claude, drawing on a self-taught coding background. I'm part of it too: the questions you can tap have answers she wrote, and anything you type goes to Claude, which only knows what she's approved. It's the same layered design she shipped at Zartico.",
+      a: "Rose designed and built this site herself with Claude, drawing on a self-taught coding background. I'm part of it too: the questions you can tap have answers she wrote, and anything you type goes to Claude, which only knows what she's approved. It's the same layered design she has shipped in previous roles.",
       next: 'What else has she built with AI?' }
   ];
-  var HOW = "The questions you can tap show answers Rose wrote herself, so they're accurate every time. Anything you type goes to Claude, which can only answer from a file of facts Rose reviewed line by line. If it doesn't know, it says so and points you to her email. It's the same layered design she shipped at Zartico. Typed questions are saved anonymously, with no information about you, so Rose can see what people ask and improve the answers.";
+  var HOW = "The questions you can tap show answers Rose wrote herself, so they're accurate every time. Anything you type goes to Claude, which can only answer from a file of facts Rose reviewed line by line. If it doesn't know, it says so and points you to her email. It's the same layered design she has shipped in previous roles. Typed questions are saved anonymously, with no information about you, so Rose can see what people ask and improve the answers.";
 
   var css = [
     '.aw-launch{position:fixed;right:20px;bottom:20px;z-index:60;display:inline-flex;align-items:center;gap:10px;padding:6px 18px 6px 6px;border-radius:999px;border:0;cursor:pointer;background:var(--accent);color:var(--on-accent,#fff);font:inherit;font-weight:700;font-size:.95rem;box-shadow:0 10px 28px rgba(0,0,0,.18);transition:transform .15s}',
