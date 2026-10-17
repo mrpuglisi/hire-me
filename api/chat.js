@@ -114,7 +114,12 @@ module.exports = async function handler(req, res) {
     if (!r.ok) {
       const body = await r.text().catch(() => "");
       console.error("Anthropic API error", r.status, body.slice(0, 300));
-      return res.status(502).json({ error: "Something went wrong on my end (code " + r.status + "). Email Rose at maryrose.puglisi@gmail.com." });
+      let detail = "";
+      if (process.env.VERCEL_ENV !== "production") {
+        // Previews only: show Anthropic's own error message to help setup. Never shown on the live site.
+        try { detail = " Details: " + JSON.parse(body).error.message; } catch (e) { detail = ""; }
+      }
+      return res.status(502).json({ error: "Something went wrong on my end (code " + r.status + ")." + detail + " Email Rose at maryrose.puglisi@gmail.com." });
     }
     const data = await r.json();
     let text = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("").replace(/\s*—\s*/g, ", ").trim();
