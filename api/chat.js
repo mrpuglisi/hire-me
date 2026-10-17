@@ -79,6 +79,15 @@ async function logQuestion(question, answer, askRose) {
 }
 
 module.exports = async function handler(req, res) {
+  if (req.method === "GET" && req.query && req.query.check !== undefined) {
+    // Setup check: says whether the settings exist, never their values.
+    return res.status(200).json({
+      environment: process.env.VERCEL_ENV || "unknown",
+      anthropicKeySet: Boolean(process.env.ANTHROPIC_API_KEY),
+      anthropicKeyLooksRight: String(process.env.ANTHROPIC_API_KEY || "").trim().startsWith("sk-ant-"),
+      loggingSet: Boolean(process.env.LOG_WEBHOOK_URL),
+    });
+  }
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method not allowed" });
@@ -97,12 +106,16 @@ module.exports = async function handler(req, res) {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
+        "x-api-key": process.env.ANTHROPIC_API_KEY.trim(),
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({ model: MODEL, max_tokens: MAX_TOKENS, temperature: 0, system: SYSTEM_PROMPT, messages }),
     });
-    if (!r.ok) throw new Error("Upstream " + r.status);
+    if (!r.ok) {
+      const body = await r.text().catch(() => "");
+      console.error("Anthropic API error", r.status, body.slice(0, 300));
+      return res.status(502).json({ error: "Something went wrong on my end (code " + r.status + "). Email Rose at maryrose.puglisi@gmail.com." });
+    }
     const data = await r.json();
     let text = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("").replace(/\s*—\s*/g, ", ").trim();
     const askRose = !text || text.includes("[[ASK_ROSE]]");
