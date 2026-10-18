@@ -38,16 +38,20 @@ GRANICUS, FORMERLY SIMPLEVIEW, PRODUCT MANAGER (2021 TO 2025)
 - When GovDelivery's FedRAMP authorization was at risk, she fixed how vulnerabilities were reported, mapped dependencies, and divided work across teams. Open vulnerabilities went from about 1,800 to about 200, well within remediation timelines. Asked to present the approach and mentor other teams.
 - Formalized planning practices and SOPs that cut planning errors about 30%.
 - Directed an offshore engineering team's day-to-day work, interviewed candidates, and onboarded new hires. No formal direct reports.
+- Onboarded and trained incoming Product Owners and Product Managers.
+- Many of the destination organizations on the CMS are nonprofit and membership-based.
 - Simpleview CMS Certified Mentor.
 
-VALENCE, PRODUCT AND STRATEGY CONSULTANT (2024 TO NOW)
+VALENCE, FREELANCE PRODUCT AND STRATEGY CONSULTANT (2024 TO NOW)
+- Freelance and pro bono, alongside her full-time roles.
 - Valence is gym management software for independent operators.
+- Shaped AI features for membership businesses, including automatically flagging unpaid or lapsed memberships.
 - Advised the founder on zero-to-one product strategy from the original idea, and on AI strategy as generative AI arrived.
 - Built as one system, so members and staff see the same live data. First gym went live in October 2026; sales start in 2027.
 - Creating go-to-market materials: sales deck and training.
 
 EARLIER CAREER
-- Personify, SaaS implementation project manager (2020 to 2021): implemented event software for 200 to 300 enterprise clients, owning API setup and launch, and launched self-serve exhibitor micro-sites.
+- Personify (association and event management software), SaaS project manager (2020 to 2021): implemented event and association software for DMO, CVB, and enterprise clients, owning API setup and launch, and launched self-serve exhibitor micro-sites.
 - GES, sales manager (2019 to 2020): sponsorship and signage sales, cross-state shipping logistics for trade shows, and itemized pricing proposals built with SQL, adjusted for location, shipping, and quantity to set margin.
 - Baltimore Convention Center, sales manager (2017 to 2019): national sales work, site visits, and familiarization tours. Signed many deals, including a three-year NCAA agreement that brought about $5M in economic impact to Baltimore.
 - Loyola University Maryland, event operations (2012 to 2016): led event teams of 20 to 30. Sold and ran trade shows of 10,000+ attendees across these roles.
