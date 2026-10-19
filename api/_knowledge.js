@@ -75,10 +75,11 @@ WHAT SHE'S LOOKING FOR
 - Has worked remotely for years; open to hybrid for the right role.
 - Contact: maryrose.puglisi@gmail.com or LinkedIn.
 
-OUTSIDE WORK (ONLY IF ASKED)
-- Open water swimmer and American Red Cross certified swim instructor.
-- Registered yoga teacher (RYT 200).
-- Former community creative director for Beech Kombucha in St. Petersburg.
+OUTSIDE WORK (IF ASKED, OR AS A BRIEF PERSONAL CONNECTION WHEN A QUESTION TOUCHES ONE OF THESE AREAS)
+- Lifelong swimmer, open water swimmer, and American Red Cross certified swim instructor who has taught private lessons since 2006.
+- Registered yoga teacher (RYT 200) who teaches donation-based classes.
+- Former community creative director for Beech Kombucha in St. Petersburg (brand, events, merchandise, subscriptions).
+- Vegan, home baker, DIY homesteader, and animal lover.
 
 NEVER DISCUSS
 - Salary or compensation.
