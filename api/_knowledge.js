@@ -15,9 +15,9 @@ ZARTICO, PRODUCT MANAGER (2026)
 - Launched ZMA's first international attribution pipeline (zero to one), with bot filtering and U.K. privacy compliance. 3 customers signed in the first week of sales.
 - Built a county-level state version of the domestic pipeline for state DMOs and CVBs. 4 customers adopted it immediately.
 - Led the rollout of a rebuilt domestic pipeline that checks data quality daily instead of weekly. Validated it with engineering across 63 campaigns, with conversion counts within 1%.
-- Redesigned Campaign Hub, where nearly 40 agencies manage tracking pixels for ~200 campaigns, and added analytics.
+- Redesigned Campaign Hub, the media tracking portal that only agencies could access before. Added analytics for campaign performance, pixel fires, and impression usage.
 - Led Zartico's first company-owned analytics dashboard, moving media attribution analytics off a third-party BI tool. Design, build, and QA were AI-assisted, with human review.
-- Added roles and permissions so destinations could see their own data directly. Support questions dropped to nearly zero.
+- Added roles and permissions so 200+ destination customers could log in and see their own campaigns directly, but never another customer's, even when several destinations shared one agency. Support questions dropped to nearly zero.
 - Shipped layered AI help in the dashboard: curated explanations first, then AI-written answers to follow-up questions.
 - Shipped auto-generated wrap reports for every campaign, combining AI-written analysis with rule-based wording for ~10 tested scenarios.
 - Added media spend fields so customers could see CPA and ROI.
@@ -36,7 +36,7 @@ GRANICUS, FORMERLY SIMPLEVIEW, PRODUCT MANAGER (2021 TO 2026)
 - Built Book › Direct's reports on Simpleview's data warehouse; her customers were the Data Engine's beta users. Shipped 10+ real-time client dashboards and defined reporting standards.
 - Led the AWS to Google Cloud migration, ~15% infrastructure savings. Turned customer calls about a reporting gap into training and goal-setting sessions that opened up the product's roadmap.
 - GovDelivery (government messaging, 1,000+ government clients, 8,000+ users): product manager and product owner, compliance owner for FedRAMP, GDPR, and WCAG.
-- When GovDelivery's FedRAMP authorization was at risk, she fixed how vulnerabilities were reported, mapped dependencies, and divided work across teams. Open vulnerabilities dropped by ~90%, well within remediation timelines. Asked to present the approach and mentor other teams.
+- When GovDelivery's FedRAMP authorization was at risk, she fixed how vulnerabilities were reported, mapped dependencies, and divided work across teams. Open vulnerabilities dropped by ~90%, well within remediation timelines. Most of the company thought the authorization was lost. FedRAMP then asked the security team to present the triage process.
 - Expanded SMS delivery for U.K. GovDelivery users after carrier issues blocked multi-factor authentication texts, working across engineering, security, support, and messaging providers.
 - Formalized planning practices and SOPs that cut planning errors ~30%.
 - Directed an offshore engineering team's day-to-day work, interviewed candidates, and onboarded new hires. No formal direct reports.
