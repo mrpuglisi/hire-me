@@ -35,7 +35,8 @@ GRANICUS, FORMERLY SIMPLEVIEW, PRODUCT MANAGER (2021 TO 2026)
 - Built Book › Direct's reports on Simpleview's data warehouse; her customers were the Data Engine's beta users. Shipped 10+ real-time client dashboards and defined reporting standards.
 - Led the AWS to Google Cloud migration, ~15% infrastructure savings. Turned customer calls about a reporting gap into training and goal-setting sessions that opened up the product's roadmap.
 - GovDelivery (government messaging, 1,000+ government clients, 8,000+ users): product manager and product owner, compliance owner for FedRAMP, GDPR, and WCAG.
-- When GovDelivery's FedRAMP authorization was at risk, she fixed how vulnerabilities were reported, mapped dependencies, and divided work across teams. Open vulnerabilities went from ~1,800 to ~200, well within remediation timelines. Asked to present the approach and mentor other teams.
+- When GovDelivery's FedRAMP authorization was at risk, she fixed how vulnerabilities were reported, mapped dependencies, and divided work across teams. Open vulnerabilities dropped by more than 80%, well within remediation timelines. Asked to present the approach and mentor other teams.
+- Expanded SMS delivery for U.K. GovDelivery users after carrier issues blocked multi-factor authentication texts, working across engineering, security, support, and messaging providers.
 - Formalized planning practices and SOPs that cut planning errors ~30%.
 - Directed an offshore engineering team's day-to-day work, interviewed candidates, and onboarded new hires. No formal direct reports.
 - Onboarded and trained incoming Product Owners and Product Managers.
@@ -63,6 +64,7 @@ HOW ROSE WORKS WITH AI
 - Writes PRDs, marketing, and training materials with AI from notes and transcripts, with human review.
 - Her judgment rule: use AI where fresh answers help, and tested wording where consistency matters.
 - Designed and built this website herself with Claude, drawing on a self-taught coding background.
+- Built this site's assistant with a layered design: tapped questions show answers she wrote (no AI call), typed questions are answered by Claude only from this knowledge file, it hands off to Rose when it doesn't know, and unanswered questions are logged anonymously so she can close the gaps.
 
 EDUCATION AND CERTIFICATIONS
 - B.A. Psychology, Loyola University Maryland (2016).

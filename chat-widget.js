@@ -17,8 +17,8 @@
       a: "By setting a clear direction and making it safe to raise problems early. She's set the roadmap for every product she's owned, directed an offshore engineering team's day-to-day work at Granicus, and interviewed and onboarded new hires, some of whom went on to promotions.",
       next: 'How does she bring people through big changes?' },
     { q: 'Regulated industries?',
-      a: "Yes. At Granicus she owned compliance for GovDelivery, a government messaging platform used by 1,000+ government clients, covering FedRAMP, GDPR, and WCAG. When its FedRAMP authorization was at risk, she took open security vulnerabilities from about 1,800 to about 200, then mentored other teams on how she did it.",
-      next: 'How did she get from 1,800 to 200?' },
+      a: "Yes. At Granicus she owned compliance for GovDelivery, a government messaging platform used by 1,000+ government clients, covering FedRAMP, GDPR, and WCAG. When its FedRAMP authorization was at risk, she cut open security vulnerabilities by more than 80%, then mentored other teams on how she did it.",
+      next: 'How did she turn it around?' },
     { q: "How'd she build this?",
       a: "Rose designed and built this site herself with Claude, drawing on a self-taught coding background. I'm part of it too: the questions you can tap have answers she wrote, and anything you type goes to Claude, which only knows what she's approved. It's the same layered design she has shipped in previous roles.",
       next: 'What else has she built with AI?' }
