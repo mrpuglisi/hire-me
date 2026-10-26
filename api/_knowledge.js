@@ -30,6 +30,7 @@ GRANICUS, FORMERLY SIMPLEVIEW, PRODUCT MANAGER (2021 TO 2026)
 - Book › Direct (lodging referral engine): rescued a failing product with no documentation, rebuilt it around live rates APIs, and repackaged it as an add-on. Reversed churn to net growth across 250+ clients.
 - Discover Dunwoody reported $832K+ in hotel revenue through Book › Direct (public Simpleview case study).
 - Explored on-site booking for Book › Direct so travelers could book without leaving the destination's site; researched payment providers in depth and worked directly with Stripe's team on the approach.
+- Collaborated closely with the team behind Eventsforce, Simpleview's event registration product with Stripe payments, since it touched the CMS heavily. She didn't own Eventsforce.
 - Partnered with a designer on the booking widget and listings, and ran internal campaigns to find the best placements to recommend.
 - Led the Viator integration with New Orleans & Company as beta partner, built into their existing site design. Launched September 2023; first booking on day one; 700+ tours booked and $85K+ in net bookings by year end (public Simpleview story).
 - Listings with partner integrations (Viator, Ticketmaster, Yelp, Tripadvisor) saw 5x more engagement.
