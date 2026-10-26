@@ -29,6 +29,7 @@ GRANICUS, FORMERLY SIMPLEVIEW, PRODUCT MANAGER (2021 TO 2026)
 - One of three PMs on the CMS used by 500 to 700 destination organizations, with a five-person engineering team.
 - Book › Direct (lodging referral engine): rescued a failing product with no documentation, rebuilt it around live rates APIs, and repackaged it as an add-on. Reversed churn to net growth across 250+ clients.
 - Discover Dunwoody reported $832K+ in hotel revenue through Book › Direct (public Simpleview case study).
+- Explored on-site booking for Book › Direct so travelers could book without leaving the destination's site; researched payment providers in depth and worked directly with Stripe's team on the approach.
 - Partnered with a designer on the booking widget and listings, and ran internal campaigns to find the best placements to recommend.
 - Led the Viator integration with New Orleans & Company as beta partner, built into their existing site design. Launched September 2023; first booking on day one; 700+ tours booked and $85K+ in net bookings by year end (public Simpleview story).
 - Listings with partner integrations (Viator, Ticketmaster, Yelp, Tripadvisor) saw 5x more engagement.
@@ -46,6 +47,7 @@ GRANICUS, FORMERLY SIMPLEVIEW, PRODUCT MANAGER (2021 TO 2026)
 VALENCE, FREELANCE PRODUCT AND STRATEGY CONSULTANT (2025 TO NOW)
 - Freelance and pro bono, alongside her full-time roles.
 - Valence is gym management software for independent operators.
+- Valence handles membership payments, class and training payments, retail sales (apparel, smoothies, supplements), and payroll.
 - Shaped AI features for membership businesses, including automatically flagging unpaid or lapsed memberships.
 - Advised the founder on zero-to-one product strategy from the original idea, and on AI strategy as generative AI arrived.
 - Built as one system, so members and staff see the same live data. First gym went live in October 2026; sales start in 2027.
