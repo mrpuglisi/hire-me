@@ -19,7 +19,7 @@ ZARTICO, PRODUCT MANAGER (2026)
 - Led Zartico's first company-owned analytics dashboard, moving media attribution analytics off a third-party BI tool. Design, build, and QA were AI-assisted, with human review.
 - Added roles and permissions so 200+ destination customers could log in and see their own campaigns directly, but never another customer's, even when several destinations shared one agency. Support questions dropped to nearly zero.
 - Shipped layered AI help in the dashboard: curated explanations first, then AI-written answers to follow-up questions.
-- Shipped auto-generated wrap reports for every campaign, combining AI-written analysis with rule-based wording for ~10 tested scenarios.
+- Shipped auto-generated wrap reports for every campaign, combining AI-written analysis with rule-based wording for ~10-15 tested scenarios.
 - Added media spend fields so customers could see CPA and ROI.
 - Prototyped scheduled email delivery of reports, and a Claude-powered upgrade to a paid knowledge-base assistant.
 - Scoped a spend-based attribution model for states with geo-privacy laws (discovery stage).
