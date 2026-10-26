@@ -36,7 +36,7 @@ GRANICUS, FORMERLY SIMPLEVIEW, PRODUCT MANAGER (2021 TO 2026)
 - Built Book › Direct's reports on Simpleview's data warehouse; her customers were the Data Engine's beta users. Shipped 10+ real-time client dashboards and defined reporting standards.
 - Led the AWS to Google Cloud migration, ~15% infrastructure savings. Turned customer calls about a reporting gap into training and goal-setting sessions that opened up the product's roadmap.
 - GovDelivery (government messaging, 1,000+ government clients, 8,000+ users): product manager and product owner, compliance owner for FedRAMP, GDPR, and WCAG.
-- When GovDelivery's FedRAMP authorization was at risk, she fixed how vulnerabilities were reported, mapped dependencies, and divided work across teams. Open vulnerabilities dropped by ~90%, well within remediation timelines. Most of the company thought the authorization was lost. FedRAMP then asked the security team to present the triage process.
+- When GovDelivery's FedRAMP authorization was at risk, she fixed how vulnerabilities were reported, mapped dependencies, and divided work across teams. Open vulnerabilities dropped by ~90%, well within remediation timelines. Most of the company thought the authorization was lost. FedRAMP then asked the security team to present the triage process, and she mentored internal teams on the approach.
 - Expanded SMS delivery for U.K. GovDelivery users after carrier issues blocked multi-factor authentication texts, working across engineering, security, support, and messaging providers.
 - Formalized planning practices and SOPs that cut planning errors ~30%.
 - Directed an offshore engineering team's day-to-day work, interviewed candidates, and onboarded new hires. No formal direct reports.
