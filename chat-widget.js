@@ -85,7 +85,7 @@
     '<button class="aw-x" type="button" aria-label="Close">×</button></div>' +
     '<div class="aw-log" aria-live="polite"><div class="aw-chips" role="group" aria-label="Suggested questions"></div></div>' +
     '<form class="aw-form"><label class="aw-sr" for="aw-input">Ask a question about Rose\'s work</label>' +
-    '<input id="aw-input" type="text" maxlength="600" autocomplete="off" placeholder="Type a question…">' +
+    '<input id="aw-input" type="text" maxlength="4000" autocomplete="off" placeholder="Type a question…">' +
     '<button type="submit" aria-label="Send">↑</button></form>' +
     '<div class="aw-foot"><button type="button" class="aw-how-btn" aria-expanded="false">How this works</button></div>';
 
