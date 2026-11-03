@@ -94,7 +94,7 @@
   var log = panel.querySelector('.aw-log'), chips = panel.querySelector('.aw-chips');
   var form = panel.querySelector('.aw-form'), input = panel.querySelector('#aw-input'), send = form.querySelector('button');
   var howBtn = panel.querySelector('.aw-how-btn'), howBox = null;
-  var history = [], busy = false, used = {}, answered = 0, ctaShown = false;
+  var history = [], busy = false, used = {}, sent = 0, shared = false, ctaShown = false;
   function cta(askRose, q) {
     if (ctaShown) return; ctaShown = true;
     var c = document.createElement('div'); c.className = 'aw-cta';
@@ -106,7 +106,8 @@
     c.innerHTML = '<p>' + (askRose ? "That's a great one to ask Rose directly." : "Like what you're hearing? Rose would love to talk.") + '</p><div>' + links + '</div>';
     log.insertBefore(c, chips); scroll();
   }
-  function afterAnswer() { answered++; if (answered === 2) cta(); }
+  // "Like what you're hearing?" only once her experience has been shared, and not before the visitor's 3rd message.
+  function afterAnswer(experience) { if (experience) shared = true; if (shared && sent >= 3) cta(); }
 
   function scroll() { log.scrollTop = log.scrollHeight; }
   function add(role, text, tag) {
@@ -117,32 +118,37 @@
   function typing() {
     var d = add('bot', ''); d.innerHTML = '<span class="aw-typing" aria-label="Typing"><i></i><i></i><i></i></span>'; return d;
   }
-  function renderChips(nextQ) {
+  // First view: all starter questions. After that: only 1 to 2 follow-ups that fit the conversation.
+  function renderChips(nextQs, first) {
     chips.innerHTML = '';
-    if (nextQ) {
-      var n = document.createElement('button'); n.type = 'button'; n.className = 'aw-chip next'; n.textContent = nextQ;
-      n.addEventListener('click', function () { ask(nextQ); }); chips.appendChild(n);
-    }
+    var asked = history.filter(function (m) { return m.role === 'user'; }).map(function (m) { return m.content.toLowerCase(); });
+    var shown = 0;
+    (nextQs || []).forEach(function (q) {
+      if (shown >= 2 || asked.indexOf(q.toLowerCase()) > -1) return;
+      var n = document.createElement('button'); n.type = 'button'; n.className = 'aw-chip next'; n.textContent = q;
+      n.addEventListener('click', function () { ask(q); }); chips.appendChild(n); shown++;
+    });
     STARTERS.forEach(function (s, i) {
-      if (used[i]) return;
+      if (used[i] || (!first && shown >= (nextQs && nextQs.length ? 2 : 1))) return;
       var b = document.createElement('button'); b.type = 'button'; b.className = 'aw-chip'; b.textContent = s.q;
-      b.addEventListener('click', function () { starter(i); }); chips.appendChild(b);
+      b.addEventListener('click', function () { starter(i); }); chips.appendChild(b); shown++;
     });
     chips.style.display = chips.children.length ? '' : 'none';
   }
   function starter(i) {
     if (busy) return; busy = true; used[i] = true;
-    var s = STARTERS[i]; chips.innerHTML = '';
+    var s = STARTERS[i]; chips.innerHTML = ''; sent++;
     add('me', s.q); var t = typing();
     setTimeout(function () {
       t.textContent = s.a; var tag = document.createElement('span'); tag.className = 'aw-tag'; tag.textContent = "In Rose's own words"; t.appendChild(tag);
       history.push({ role: 'user', content: s.q }, { role: 'assistant', content: s.a });
-      busy = false; afterAnswer(); renderChips(s.next); scroll();
+      busy = false; afterAnswer(true); renderChips([s.next]); scroll();
     }, 650);
   }
   function ask(q) {
     if (busy) return; busy = true; send.disabled = true; chips.innerHTML = '';
-    add('me', q); history.push({ role: 'user', content: q });
+    add('me', q); history.push({ role: 'user', content: q }); sent++;
+    var nextQs = null;
     var t = typing();
     fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: history.slice(-8) }) })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
@@ -151,15 +157,15 @@
         t.textContent = text;
         if (x.ok) {
           if (!x.j.askRose) { var n = document.createElement('span'); n.className = 'aw-tag'; n.textContent = "AI answer from Rose's approved facts. Worth confirming details with her."; t.appendChild(n); }
-          history.push({ role: 'assistant', content: text }); if (x.j.askRose) cta(true, q); else afterAnswer();
+          history.push({ role: 'assistant', content: text }); nextQs = x.j.next; if (x.j.askRose) cta(true, q); else afterAnswer(x.j.experience);
         }
       })
       .catch(function () { t.textContent = "Hmm, I couldn't connect just now. Rose is at " + EMAIL + '.'; })
-      .then(function () { busy = false; send.disabled = false; renderChips(); input.focus(); scroll(); });
+      .then(function () { busy = false; send.disabled = false; renderChips(nextQs); input.focus(); scroll(); });
   }
   function open() {
     panel.classList.add('open'); launch.setAttribute('aria-expanded', 'true');
-    if (log.children.length === 1) { add('bot', "Hi, I'm Rose's portfolio assistant. Ask me anything about her work, or tap a question to start."); renderChips(); }
+    if (log.children.length === 1) { add('bot', "Hi, I'm Rose's portfolio assistant. Ask me anything about her work, or tap a question to start."); renderChips(null, true); }
     setTimeout(function () { input.focus(); }, 30);
   }
   function close() { panel.classList.remove('open'); launch.setAttribute('aria-expanded', 'false'); launch.focus(); }

@@ -7,7 +7,7 @@
 const KNOWLEDGE = require("./_knowledge.js");
 
 const MODEL = "claude-haiku-5-5"; // small, fast, inexpensive
-const MAX_TOKENS = 350;           // caps answer length and cost
+const MAX_TOKENS = 1200;          // room for the model to think and still finish; the prompt keeps answers short
 const MAX_MESSAGES = 8;           // only the most recent messages are sent
 const MAX_CHARS = 4000;           // longest message a visitor can send (room to paste a job description)
 const LIMIT_PER_HOUR = 20;        // per visitor, best effort; the Anthropic spend cap is the real backstop
@@ -37,12 +37,16 @@ Voice:
 
 Vague, short, or confusing messages:
 - Visitors often type things like "yes", "ok", "sure", "go on", "tell me more", "what do you think", "huh", "?", "idk", or a misspelled or half-finished question. Never answer these with another open-ended question, and never ask the visitor to clarify twice in a row.
-- Read the message in light of your last reply. If you offered something ("Want the story behind that one?") and they say yes, deliver it. If you asked them to choose and they didn't, choose for them: give the most useful answer for a hiring manager, then name two specific things they could ask next (for example: "I can also walk you through her FedRAMP turnaround or what she built at Zartico.").
-- If there's no earlier context, give a quick 2 to 3 sentence overview of her strongest work with specific results, then name two specific things they could ask next.
+- Read the message in light of your last reply. If you offered something ("Want the story behind that one?") and they say yes, deliver it. If you asked them to choose and they didn't, choose for them: give the most useful answer for a hiring manager, then suggest two specific follow-ups with the NEXT marker below.
+- If there's no earlier context, give a quick 2 to 3 sentence overview of her strongest work with specific results.
 - If a message makes no sense at all, take your best guess at what a hiring manager would want and answer that. Don't point out typos or say you didn't understand.
 - If a visitor asks "what do you think" or "is she a good fit" after an earlier question, answer that earlier question with a confident, specific case. Don't fall back on "Rose can answer that better."
 - If a visitor pastes a job description, compare it to <knowledge>: name the requirements she clearly matches with specific examples, note any that aren't on her record yet, and make the case for why her closest experience transfers. End on why she'd be a strong hire for the role.
 - Greetings ("hi", "hello"): greet back in one short line and name two or three specific things they can ask about. Keep it brief.
+
+Suggested follow-ups:
+- After every answer, add one final line that starts with [[NEXT]] followed by one or two short follow-up questions a hiring manager might tap next, separated by " | " (for example: [[NEXT]] How did she turn FedRAMP around? | What did she build at Zartico?). The visitor sees these as buttons, not text.
+- Make them specific to what was just discussed, under 8 words each, written as the visitor asking about Rose. Don't repeat a question already asked, and don't mention these buttons in your answer.
 
 Tone:
 - Warm, concise, and professional by default.
@@ -135,11 +139,29 @@ module.exports = async function handler(req, res) {
     }
     const data = await r.json();
     let text = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("").replace(/\s*—\s*/g, ", ").trim();
+    let next = [];
+    const nextMatch = text.match(/\[\[NEXT\]\]([^\n]*)/);
+    if (nextMatch) {
+      next = nextMatch[1].split("|").map((q) => q.trim()).filter((q) => q && q.length <= 80).slice(0, 2);
+      text = text.replace(/\s*\[\[NEXT\]\][^\n]*/g, "").trim();
+    }
+    if (data.stop_reason === "max_tokens") {
+      // Safety net: never show a half-finished sentence.
+      const end = Math.max(text.lastIndexOf(". "), text.lastIndexOf("? "), text.lastIndexOf("! "));
+      const last = /[.?!]$/.test(text) ? text.length : end + 1;
+      text = last > 40 ? text.slice(0, last).trim() : "";
+      next = [];
+    }
     const askRose = !text || text.includes("[[ASK_ROSE]]");
     text = text.replace(/\[\[ASK_ROSE\]\]\s*/g, "").trim();
     const reply = text || "That's one Rose can answer better than I can.";
-    await logQuestion(messages[messages.length - 1].content, reply, askRose);
-    return res.status(200).json({ reply, askRose });
+    const question = messages[messages.length - 1].content;
+    // Did this answer actually share her experience? (Not a greeting, not a hand-off to Rose.)
+    const greeting = question.length < 25 && /^(hi|hello|hey|hiya|yo|good (morning|afternoon|evening))\b/i.test(question);
+    const sentences = (reply.match(/[.?!](\s|$)/g) || []).length;
+    const experience = !askRose && !greeting && sentences >= 2;
+    await logQuestion(question, reply, askRose);
+    return res.status(200).json({ reply, askRose, next, experience });
   } catch (e) {
     return res.status(502).json({ error: "Something went wrong on my end. Email Rose at maryrose.puglisi@gmail.com." });
   }
