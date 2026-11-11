@@ -12,12 +12,12 @@ ZARTICO, PRODUCT MANAGER (2026)
 - Zartico is a destination analytics company (~30 people) serving destination marketing organizations (DMOs) and convention and visitors bureaus (CVBs).
 - The only product manager; reported to the VP of Engineering. Owned Zartico Media Attribution (ZMA) end to end.
 - ZMA measures whether ad exposure drove real visits to a destination.
-- Launched ZMA's first international attribution pipeline (zero to one), with bot filtering and U.K. privacy compliance. 3 customers signed in the first week of sales.
+- Launched ZMA's first international attribution pipeline (zero to one), including bot filtering and navigating U.K. privacy compliance. 3 customers signed in the first week of sales.
 - Built a county-level state version of the domestic pipeline for state DMOs and CVBs. 4 customers adopted it immediately.
 - Led the rollout of a rebuilt domestic pipeline that checks data quality daily instead of weekly. Validated it with engineering across 63 campaigns, with conversion counts within 1%.
-- Redesigned Campaign Hub, the media tracking portal that only agencies could access before. Added analytics for campaign performance, pixel fires, and impression usage.
+- Redesigned Campaign Hub, the media tracking portal that only agencies could access before. Added analytics for campaign performance, pixel fires, impression usage, and user journeys: Zartico's first analytics dashboard built on its own front end instead of a third-party BI tool.
 - Led Zartico's first company-owned analytics dashboard, moving media attribution analytics off a third-party BI tool. Design, build, and QA were AI-assisted, with human review.
-- Added roles and permissions so 200+ destination customers could log in and see their own campaigns directly, but never another customer's, even when several destinations shared one agency. Support questions dropped to nearly zero.
+- Added roles and permissions so 200+ destination customers could log in and see their own campaigns directly, but never another customer's, even when several destinations shared one agency.
 - Shipped layered AI help in the dashboard: curated explanations first, then AI-written answers to follow-up questions.
 - Shipped auto-generated wrap reports for every campaign, combining AI-written analysis with rule-based wording for ~10-15 tested scenarios.
 - Added media spend fields so customers could see CPA and ROI.
@@ -27,7 +27,7 @@ ZARTICO, PRODUCT MANAGER (2026)
 
 GRANICUS, FORMERLY SIMPLEVIEW, PRODUCT MANAGER (2021 TO 2026)
 - One of three PMs on the CMS used by 500 to 700 destination organizations, with a five-person engineering team.
-- Book › Direct (lodging referral engine): rescued a failing product with no documentation, rebuilt it around live rates APIs, and repackaged it as an add-on. Reversed churn to net growth across 250+ clients.
+- Book › Direct (lodging referral engine): rescued a failing product with no documentation, rebuilt it around live rates APIs, and repackaged it as an add-on. Reversed churn to net growth across 250+ clients, driven by new client dashboards and rebuilt customer relationships.
 - Discover Dunwoody reported $832K+ in hotel revenue through Book › Direct (public Simpleview case study).
 - Explored on-site booking for Book › Direct so travelers could book without leaving the destination's site; researched payment providers in depth and worked directly with Stripe's team on the approach.
 - Partnered with a designer on the booking widget and listings, and ran internal campaigns to find the best placements to recommend.
@@ -35,12 +35,12 @@ GRANICUS, FORMERLY SIMPLEVIEW, PRODUCT MANAGER (2021 TO 2026)
 - Listings with partner integrations (Viator, Ticketmaster, Yelp, Tripadvisor) saw 5x more engagement.
 - Built Book › Direct's reports on Simpleview's data warehouse; her customers were the Data Engine's beta users. Shipped 10+ real-time client dashboards and defined reporting standards.
 - Led the AWS to Google Cloud migration, ~15% infrastructure savings. Turned customer calls about a reporting gap into training and goal-setting sessions that opened up the product's roadmap.
-- GovDelivery (government messaging, 1,000+ government clients, 8,000+ users): product manager and product owner, compliance owner for FedRAMP, GDPR, and WCAG.
-- When GovDelivery's FedRAMP authorization was at risk, she fixed how vulnerabilities were reported, mapped dependencies, and divided work across teams. Open vulnerabilities dropped by ~90%, well within remediation timelines. Most of the company thought the authorization was lost. FedRAMP then asked the security team to present the triage process, and she mentored internal teams on the approach.
+- GovDelivery (government messaging, 1,000+ government clients, 8,000+ users): product manager and product owner; co-led modernization and compliance (FedRAMP, GDPR, WCAG) on a large product with multiple engineering teams.
+- When GovDelivery's FedRAMP authorization was at risk, she fixed how vulnerabilities were reported, mapped dependencies, and divided work across teams. Open vulnerabilities dropped by ~90%, well within remediation timelines. Most of the company thought the authorization was lost.
 - Expanded SMS delivery for U.K. GovDelivery users after carrier issues blocked multi-factor authentication texts, working across engineering, security, support, and messaging providers.
-- Formalized planning practices and SOPs that cut planning errors ~30%.
+- On GovDelivery, formalized planning practices and SOPs that cut planning errors ~30%.
 - Directed an offshore engineering team's day-to-day work, interviewed candidates, and onboarded new hires. No formal direct reports.
-- Onboarded and trained incoming Product Owners and Product Managers.
+- Onboarded and trained individuals within the product space.
 - Many of the destination organizations on the CMS are nonprofit and membership-based.
 - Simpleview CMS Certified Mentor.
 
